@@ -49,3 +49,5 @@ yarn.lock
 
 #firebase
 .firebaserc
+package.lock.json
+*.cache
