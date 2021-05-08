@@ -51,19 +51,19 @@ p {
         height: #{($size / 2) - 10};
         margin-top: 10px;
         background: $feature;
-        animation: time 60s infinite steps(60);
+        // animation: time 60s infinite steps(60);
         z-index: 3;
     }
     &__minute {
         height: #{($size / 2) - 20};
         margin-top: 20px;
         opacity: 0.75;
-        animation: time 3600s linear infinite;
+        // animation: time 3600s linear infinite;
     }
     &__hour {
         height: #{($size / 2) - 40};
         margin-top: 40px;
-        animation: time 43200s linear infinite;
+        // animation: time 43200s linear infinite;
     }
     &__indicator {
         height: #{($size / 2) - 2};

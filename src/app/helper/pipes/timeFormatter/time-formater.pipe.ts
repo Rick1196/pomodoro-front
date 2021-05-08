@@ -5,10 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   pure: false
 })
 export class TimeFormatterPipe implements PipeTransform {
-  transform(time: number, timeToTransform: number): string {
-    const hours = parseInt(Math.floor(timeToTransform / 3600) + '', 10).toString().padStart(2, '0');
-    const minutes = parseInt(Math.floor(((timeToTransform % 3600)) / 60) + '', 10).toString().padStart(2, '0');
-    const seconds = (((timeToTransform % 3600)) % 60).toString().padStart(2, '0');
+  transform(time: Array<number>, timeToTransform: Array<number>): string {
+    const hours = timeToTransform[0].toString().padStart(2, '0');
+    const minutes = timeToTransform[1].toString().padStart(2, '0');
+    const seconds = timeToTransform[2].toString().padStart(2, '0');
     return `${hours}:${minutes}:${seconds}`;
   }
 }
