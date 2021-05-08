@@ -1,0 +1,145 @@
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$light-gray: rgb(204, 204, 204);
+$dark-moderate-blue: rgb(62, 122, 144);
+$very-soft-orange: rgb(232, 210, 150);
+$background-color: #e6f7f3;
+$navbar-color: transparent;
+$background-color: #e6f7f3;
+$font-color: #fff;
+$font-size: 1.8rem;
+$font-size-title: calc($font-size + 1rem);
+$font-weight: 420;
+$font-size-hero: 4rem;
+$font-weight-hero: 700;
+$font-size-hero-span: 3rem;
+$font-weight-hero-span: 500;
+$input-border-color: rgba(255, 131, 131, 0.98);
+$deactivated-color: #e6f7f3;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: url("../images/pomodoro-1315887.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body {
+  color: $font-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-family: "Krub", sans-serif;
+  margin: 0;
+}
+.text-center {
+  text-align: center;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  margin: 1em auto 1em auto;
+}
+.input {
+  outline: none;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+  border-radius: 0.7em;
+  border-width: 0.01px;
+  border-style: outset;
+  display: block;
+  width: 90%;
+  height: 2.75rem;
+  color: $font-color;
+  caret-color: #fff;
+  font-size: calc($font-size - 0.8rem);
+  text-align: left;
+  padding-left: 1em;
+  margin: inherit;
+}
+
+.button-large {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.row-container {
+  width: calc(100%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.button {
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 0;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-row {
+  @extend .button;
+  margin: 1em 5px 0 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: calc((100% - 10px) / 2);
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+}
+.login-container {
+  width: max(40%, 15rem);
+  height: max(30rem, 15rem);
+  margin: 6rem auto 6rem auto;
+  border-radius: 3em;
+}
+
+.card {
+  background: rgba(10, 3, 3, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.login-card {
+  @extend .card;
+  width: inherit;
+  height: inherit;
+  margin: inherit;
+  padding: 2.5rem 0.5rem;
+}
+
+.login-card > .title {
+  @extend .text-center;
+  font-size: $font-size-title;
+}
+
+.login-card > .input {
+  @extend .input;
+  width: 90%;
+}
