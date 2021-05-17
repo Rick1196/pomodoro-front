@@ -1,7 +1,11 @@
 <div class="clock">
+    <!-- seconds clock hand -->
     <div #secondsIndicator class="clock__second"></div>
+    <!-- minutes clock hand -->
     <div #minutesIndicator class="clock__minute"></div>
+    <!-- hour clock hand -->
     <div #hoursIndicator class="clock__hour"></div>
+    <!-- Label with time count {hh:mm:ss} -->
     <div class="hour">
         <p>{{time | timeFormatter: time}}</p>
     </div>
