@@ -1,3 +1,3 @@
 export type ClockState = {
-    state: 'NONE' | 'PLAY' | 'PAUSE'
+    state: 'NONE' | 'PLAY' | 'PAUSE' | 'RESUME'
 };

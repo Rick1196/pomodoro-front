@@ -71,11 +71,17 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   protected managePlayState(): void {
+    this.playEvent.next(true);
     this.timerSubscription();
   }
 
+  protected manageResumeState():void{
+    this.playEvent.next(true);
+  }
+
   protected managePauseState(): void {
-    this.stopClock.next();
+    // this.stopClock.next();
+    this.pauseEvent.next(false);
     console.log('Clock component -- secondsStateValue on pause', this.secondsStateValue);
   }
 
@@ -89,6 +95,9 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
         break;
       case 'PLAY':
         this.managePlayState();
+        break;
+      case 'RESUME':
+        this.manageResumeState();
         break;
     }
   }
@@ -117,7 +126,8 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
         this.secondsStateValue = (curr ? curr + acc : acc);
         return (curr ? curr + acc : acc)
       }, this.secondsStateValue - 1),
-      takeWhile(v => v <= this.seconds)
+      takeWhile(v => v <= this.seconds),
+      takeUntil(this.stopClock)
     ).subscribe({
       next: (tickValue:number) => {
         if(tickValue !== null && tickValue !== undefined) {
@@ -132,41 +142,7 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
         this.timerSubscriptionCompleted(this.time);
       }
     });
-    // console.log('Clock component --- initiate clock with value', this.secondsStateValue);
-    // // TODO: Use switchMap
-    // const takeSeconds = numbers
-    //   .pipe(take(this.seconds - this.secondsStateValue), takeUntil(this.stopClock));
-    // takeSeconds.subscribe({
-    //   next: (intervalValue: number) => {
-    //     // Convert seconds to [hh,mm,ss]
-    //     this.secondsStateValue = intervalValue;
-    //     this.time = secondsToFullTime((this.seconds - intervalValue) - 1);
-    //     this.setHandsPositions(this.time[0], this.time[1], ((intervalValue + 1)));
-    //     console.log(intervalValue);
-    //   },
-    //   complete: () => {
-    //     this.timerSubscriptionCompleted(this.time);
-    //   }
-    // });
   }
-
-//   const remainingLabel = document.getElementById('remaining');
-// const pauseButton = document.getElementById('pause');
-// const resumeButton = document.getElementById('resume');
-
-// // streams
-// const interval$ = interval(1000).pipe(mapTo(-1));
-// const pause$ = fromEvent(pauseButton, 'click').pipe(mapTo(false));
-// const resume$ = fromEvent(resumeButton, 'click').pipe(mapTo(true));
-
-// const timer$ = merge(pause$, resume$)
-//   .pipe(
-//     startWith(true),
-//     switchMap(val => (val ? interval$ : empty())),
-//     scan((acc, curr) => (curr ? curr + acc : acc), COUNTDOWN_SECONDS),
-//     takeWhile(v => v >= 0)
-//   )
-//   .subscribe((val: any) => remainingLabel.innerHTML = val);
 
   ngOnInit(): void {
     this.secondsStateValue = 0;
