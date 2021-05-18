@@ -10,6 +10,7 @@ export class AuthenticationHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('Authentication home -- init life state');
   }
 
 }

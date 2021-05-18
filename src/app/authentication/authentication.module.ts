@@ -11,11 +11,11 @@ import { AuthenticationSignupComponent } from './component/authentication-signup
   declarations: [
     AuthenticationHomeComponent,
     AuthenticationLoginComponent,
-    AuthenticationSignupComponent
+    AuthenticationSignupComponent,
   ],
   imports: [
     CommonModule,
-    AuthenticationRoutingModule
-  ]
+    AuthenticationRoutingModule,
+  ],
 })
 export class AuthenticationModule { }

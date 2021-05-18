@@ -9,6 +9,7 @@ export class AuthenticationLoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('Authentication login -- init life state');
   }
 
 }

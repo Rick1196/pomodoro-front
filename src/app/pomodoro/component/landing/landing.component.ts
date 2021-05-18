@@ -27,6 +27,7 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('Landing component -- init life state');
   }
 
 }
