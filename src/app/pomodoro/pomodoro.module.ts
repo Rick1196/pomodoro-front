@@ -10,12 +10,12 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
 @NgModule({
   declarations: [
     LandingComponent,
-    ClockComponent
+    ClockComponent,
   ],
   imports: [
     CommonModule,
     PomodoroRoutingModule,
-    SharedModuleModule
-  ]
+    SharedModuleModule,
+  ],
 })
 export class PomodoroModule { }

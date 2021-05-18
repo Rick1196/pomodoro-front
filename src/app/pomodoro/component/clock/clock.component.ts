@@ -70,9 +70,9 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
    * @param {number} seconds
    */
   protected setHandsPositions(
-    hours: number,
-    minutes: number,
-    seconds: number
+      hours: number,
+      minutes: number,
+      seconds: number,
   ): void {
     this.secondsIndicatorElement.nativeElement.style.transform = `rotateZ(calc(6deg * ${seconds}))`;
     this.minutesIndicatorElement.nativeElement.style.transform = `rotateZ(calc(6deg * ${minutes}))`;
@@ -111,8 +111,8 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
     // this.stopClock.next();
     this.pauseEvent.next(false);
     console.log(
-      'Clock component -- secondsStateValue on pause',
-      this.secondsStateValue
+        'Clock component -- secondsStateValue on pause',
+        this.secondsStateValue,
     );
   }
 
@@ -138,14 +138,14 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
       next: (state: ClockState) => {
         this.timerStateManager(state);
         console.log(
-          'Clock component -- clock state change subscription',
-          state
+            'Clock component -- clock state change subscription',
+            state,
         );
       },
       error: (err) => {
         console.error(
-          'Clock component -- error on clock state change subscription',
-          err
+            'Clock component -- error on clock state change subscription',
+            err,
         );
       },
     });
@@ -157,30 +157,30 @@ export class ClockComponent implements OnInit, AfterViewInit, OnDestroy {
   protected timerSubscription(): void {
     const numbers = interval(1000).pipe(mapTo(1));
     merge(this.pauseEvent, this.playEvent)
-      .pipe(
-        startWith(true),
-        switchMap((tickValue) => (tickValue ? numbers : EMPTY)),
-        scan((acc, curr) => {
-          this.secondsStateValue = curr ? curr + acc : acc;
-          return curr ? curr + acc : acc;
-        }, this.secondsStateValue - 1),
-        takeWhile((v) => v <= this.seconds),
-        takeUntil(this.stopClock)
-      )
-      .subscribe({
-        next: (tickValue: number) => {
-          if (tickValue !== null && tickValue !== undefined) {
-            this.time = secondsToFullTime(this.seconds - tickValue);
-            this.setHandsPositions(this.time[0], this.time[1], tickValue);
-            console.log('count down: ', tickValue);
-          }
-        },
-        error: (err) => console.log(err),
-        complete: () => {
-          console.log('Completed', this.time);
-          this.timerSubscriptionCompleted(this.time);
-        },
-      });
+        .pipe(
+            startWith(true),
+            switchMap((tickValue) => (tickValue ? numbers : EMPTY)),
+            scan((acc, curr) => {
+              this.secondsStateValue = curr ? curr + acc : acc;
+              return curr ? curr + acc : acc;
+            }, this.secondsStateValue - 1),
+            takeWhile((v) => v <= this.seconds),
+            takeUntil(this.stopClock),
+        )
+        .subscribe({
+          next: (tickValue: number) => {
+            if (tickValue !== null && tickValue !== undefined) {
+              this.time = secondsToFullTime(this.seconds - tickValue);
+              this.setHandsPositions(this.time[0], this.time[1], tickValue);
+              console.log('count down: ', tickValue);
+            }
+          },
+          error: (err) => console.log(err),
+          complete: () => {
+            console.log('Completed', this.time);
+            this.timerSubscriptionCompleted(this.time);
+          },
+        });
   }
 
   ngOnInit(): void {

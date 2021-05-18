@@ -2,12 +2,13 @@
   "name": "pomodoro-front",
   "version": "1.0.0",
   "scripts": {
-    "ng": "ng",
+    "ng": "nx",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "node ./decorate-angular-cli.js"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +35,10 @@
     "@angular-eslint/template-parser": "4.3.0",
     "@angular/cli": "~11.2.1",
     "@angular/compiler-cli": "~11.2.1",
+    "@nrwl/cli": "^12.3.3",
+    "@nrwl/nx-cloud": "^12.1.1",
+    "@nrwl/tao": "^12.3.3",
+    "@nrwl/workspace": "^12.3.3",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",

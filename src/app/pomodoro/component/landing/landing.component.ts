@@ -22,12 +22,11 @@ export class LandingComponent implements OnInit {
     this.clockStateEvent.next({ state: 'NONE' });
   }
 
-  public resumeClock(): void{
-    this.clockStateEvent.next({state: 'RESUME'});
+  public resumeClock(): void {
+    this.clockStateEvent.next({ state: 'RESUME' });
   }
 
   ngOnInit(): void {
     console.log('Landing component -- init life state');
   }
-
 }

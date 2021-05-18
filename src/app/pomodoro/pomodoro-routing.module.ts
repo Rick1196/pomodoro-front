@@ -8,14 +8,14 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: LandingComponent
-      }
-    ]
-  }
+        component: LandingComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class PomodoroRoutingModule { }
