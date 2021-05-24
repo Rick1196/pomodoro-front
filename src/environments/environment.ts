@@ -3,8 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 import {firebaseConfig} from './firebase';
+import { languages } from './supportedLanguages';
 
 export const environment = {
+  languages: languages,
   firebase: firebaseConfig,
   production: false,
 };
