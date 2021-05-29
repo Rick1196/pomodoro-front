@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PomodoroRoutingModule } from './pomodoro-routing.module';
 import { LandingComponent } from './component/landing/landing.component';
 import { ClockComponent } from './component/clock/clock.component';
-import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { SharedModule } from '../shared-module/shared.module';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
   imports: [
     CommonModule,
     PomodoroRoutingModule,
-    SharedModuleModule,
+    SharedModule,
   ],
 })
 export class PomodoroModule { }

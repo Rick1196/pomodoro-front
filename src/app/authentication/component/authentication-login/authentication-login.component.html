@@ -4,16 +4,12 @@
             <p>Login</p>
         </div>
         <form [formGroup]="authForm">
-            <div class="form-group">
-                <input class="input" type="email" placeholder="Email" name="email" formControlName="username">
-            </div>
-            <div class="form-group">
-                <input class="input" type="password" placeholder="Password" name="password" formControlName="password">
-            </div>
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username" [displayMessage]="formWithErrors"></app-basic-input-field>
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password" [displayMessage]="formWithErrors"></app-basic-input-field>
         </form>
         <div class="row-container">
             <button class="button-row" (click)="validateCredentials()">Login</button>
-            <button class="button-row">Sign Up</button>
+            <button class="button-row" (click)="gotoSignUp()">Sign Up</button>
         </div>
         <div class="button-large">
             <button class="button" (click)="googleLogin()">Google</button>

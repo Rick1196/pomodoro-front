@@ -15,6 +15,18 @@ $font-weight-hero: 700;
 $font-size-hero-span: 3rem;
 $font-weight-hero-span: 500;
 $input-border-color: rgba(255, 131, 131, 0.98);
+$warning: rgba(211, 211, 9, 1);
+$success: rgba(141, 141, 32, 1);
+$error: rgba(229, 4, 4, 1);
+:root {
+  --data-text-color-basic: #{$white};
+  --data-text-color-error: #{$error};
+  --data-text-color-success: #{$success};
+  --data-text-color-warning: #{$warning};
+  --data-text-size-basic: #{1rem};
+  --data-text-weight-basic: #{$font-weight};
+}
+
 $deactivated-color: #e6f7f3;
 body::before {
   content: "";

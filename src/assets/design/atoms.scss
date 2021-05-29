@@ -1,0 +1,32 @@
+.message-container {
+    font-size: var(--data-text-size-basic);
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.message-error {
+    @extend .message-container;
+    color: var(--data-text-color-error);
+}
+
+.message-simple {
+    @extend .message-container;
+    color: var(--data-text-color-basic);
+}
+
+.message-warning {
+    @extend .message-container;
+    color: var(--data-text-color-warning);
+}
+
+.message-success {
+    @extend .message-container;
+    color: var(--data-text-color-success);
+}
+
+.message-label{
+    color: inherit;
+    font-size: inherit;
+    text-transform: capitalize;
+}

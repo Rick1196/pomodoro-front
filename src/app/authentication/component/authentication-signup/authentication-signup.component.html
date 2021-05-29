@@ -3,20 +3,15 @@
         <div class="title">
             <p>SignUp</p>
         </div>
-        <form>
-            <div class="form-group">
-                <input class="input" type="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input class="input" type="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input class="input" type="password" placeholder="Password">
-            </div>
+        <form [formGroup]="authForm" (keyup.enter)="validateCredentials()">
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username" [displayMessage]="formWithErrors"></app-basic-input-field>
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password" [displayMessage]="formWithErrors"></app-basic-input-field>
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.confirmPassword" [displayMessage]="formWithErrors"></app-basic-input-field>
+            <app-label-message *ngIf="signUpError" class="message-error" [message]="signUpError"></app-label-message>
         </form>
         <div class="row-container">
-            <button class="button-row">Login</button>
-            <button class="button-row">Send</button>
+            <button class="button-row" (click)="returnToLogin()">Login</button>
+            <button class="button-row" (click)="validateCredentials()">Send</button>
         </div>
     </div>
 </div>
