@@ -1,3 +1,32 @@
 {
-    "application_title": "Pomodoro App"
+    "application_title": "Pomodoro App",
+    "authenticationFields":{
+        "email":{
+            "placeholder": "Email",
+            "label": "Email Address"
+        },
+        "password":{
+            "placeholder": "Password",
+            "label": "Password"
+        },
+        "confirmPassword":{
+            "placeholder": "Confirm Password",
+            "label": "Confirm Password"
+        }
+    },
+    "login":{
+        "title":"Log In",
+        "loginBtn":"Log In",
+        "signUpBtn":"Sign Up",
+        "googleBtn":"Log In with Google",
+        "githubBtn":"Log In with Github"
+    },
+    "signUp":{
+        "title": "Sign Up",
+        "sendBtn": "Send",
+        "loginBtn":"Log In"
+    },
+    "authenticationErrors":{
+        "auth/email-already-in-use":"The Email Address Is Already In Use By Another Account."
+    }
 }

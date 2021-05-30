@@ -1,17 +1,17 @@
 <div class="login-container">
     <div class="login-card">
         <div class="title">
-            <p>SignUp</p>
+            <p>{{'signUp.title'|translate}}</p>
         </div>
         <form [formGroup]="authForm" (keyup.enter)="validateCredentials()">
             <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username" [displayMessage]="formWithErrors"></app-basic-input-field>
             <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password" [displayMessage]="formWithErrors"></app-basic-input-field>
             <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.confirmPassword" [displayMessage]="formWithErrors"></app-basic-input-field>
-            <app-label-message *ngIf="signUpError" class="message-error" [message]="signUpError"></app-label-message>
+            <app-label-message *ngIf="signUpError" class="message-error" [message]="(signUpError)"></app-label-message>
         </form>
         <div class="row-container">
-            <button class="button-row" (click)="returnToLogin()">Login</button>
-            <button class="button-row" (click)="validateCredentials()">Send</button>
+            <button class="button-row" (click)="returnToLogin()">{{'signUp.loginBtn'|translate}}</button>
+            <button class="button-row" (click)="validateCredentials()">{{'signUp.sendBtn'|translate}}</button>
         </div>
     </div>
 </div>

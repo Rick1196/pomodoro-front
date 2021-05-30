@@ -1,7 +1,7 @@
 <div class="login-container">
     <div class="login-card">
         <div class="title">
-            <p>Login</p>
+            <p>{{'login.title'|translate}}</p>
         </div>
         <form [formGroup]="authForm">
             <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username" [displayMessage]="formWithErrors"></app-basic-input-field>
@@ -9,13 +9,13 @@
         </form>
         <div class="row-container">
             <button class="button-row" (click)="validateCredentials()">Login</button>
-            <button class="button-row" (click)="gotoSignUp()">Sign Up</button>
+            <button class="button-row" (click)="gotoSignUp()">{{'login.signUpBtn'|translate}}</button>
         </div>
         <div class="button-large">
-            <button class="button" (click)="googleLogin()">Google</button>
+            <button class="button" (click)="googleLogin()">{{'login.googleBtn'|translate}}</button>
         </div>
         <div class="button-large">
-            <button class="button" (click)="githubLogin()">Github</button>
+            <button class="button" (click)="githubLogin()">{{'login.githubBtn'|translate}}</button>
         </div>
     </div>
 </div>

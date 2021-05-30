@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LabelMessageComponent } from '../atoms/label-message/label-message.component';
 import { FormControlErrorsPipe } from '../helper/pipes/form-control-errors.pipe';
 import { BasicInputFieldComponent } from '../component/atoms/inputs/basic-input-field/basic-input-field.component';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -16,6 +17,7 @@ import { BasicInputFieldComponent } from '../component/atoms/inputs/basic-input-
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule,
   ],
   exports: [
     TimeFormatterPipe,
@@ -24,6 +26,7 @@ import { BasicInputFieldComponent } from '../component/atoms/inputs/basic-input-
     LabelMessageComponent,
     FormControlErrorsPipe,
     BasicInputFieldComponent,
+    TranslateModule,
   ],
 })
 export class SharedModule {}

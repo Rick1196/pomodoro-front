@@ -17,7 +17,7 @@ export class AuthenticationLoginComponent implements OnInit {
   } = { username: null, password: null };
   constructor(public firebaseAuth: AngularFireAuth, private router: Router) {
     this.authForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
     this.setInputFieldsProps();
@@ -27,10 +27,10 @@ export class AuthenticationLoginComponent implements OnInit {
     this.inputFields.username = {
       autocomplete: 'on',
       class: 'input',
-      formControl: this.authForm.get('username') as FormControl,
+      formControl: this.authForm.get('email') as FormControl,
       id: 'email',
       name: 'email',
-      placeholder: 'email',
+      placeholder: 'authenticationFields.email.placeholder',
       type: 'text',
     };
 
@@ -40,7 +40,7 @@ export class AuthenticationLoginComponent implements OnInit {
       formControl: this.authForm.get('password') as FormControl,
       id: 'password',
       name: 'password',
-      placeholder: 'password',
+      placeholder: 'authenticationFields.password.placeholder',
       type: 'password',
     };
   }

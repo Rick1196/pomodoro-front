@@ -38,10 +38,10 @@ export class AuthenticationSignupComponent implements OnInit {
     this.inputFields.username = {
       autocomplete: 'on',
       class: 'input',
-      formControl: this.authForm.get('username') as FormControl,
+      formControl: this.authForm.get('email') as FormControl,
       id: 'email',
       name: 'email',
-      placeholder: 'email',
+      placeholder: 'authenticationFields.email.placeholder',
       type: 'text',
     };
 
@@ -51,7 +51,7 @@ export class AuthenticationSignupComponent implements OnInit {
       formControl: this.authForm.get('password') as FormControl,
       id: 'password',
       name: 'password',
-      placeholder: 'password',
+      placeholder: 'authenticationFields.password.placeholder',
       type: 'password',
     };
 
@@ -61,8 +61,8 @@ export class AuthenticationSignupComponent implements OnInit {
       formControl: this.authForm.get('confirmPassword') as FormControl,
       id: 'confirmPassword',
       name: 'confirmPassword',
-      placeholder: 'confirmPassword',
-      type: 'confirmPassword',
+      placeholder: 'authenticationFields.confirmPassword.placeholder',
+      type: 'password',
     };
   }
 
@@ -73,16 +73,16 @@ export class AuthenticationSignupComponent implements OnInit {
           console.log('Authentication -- sign up with credentials', data);
         })
         .catch((error: AuthError) => {
-          this.signUpError = error.message;
+          this.signUpError = 'authenticationErrors.' + error.code;
           console.error('Authentication -- sign up with credentials', error.code);
         });
   }
 
   public validateCredentials(): void {
     if (this.authForm.valid === true) {
-      const credentials: { username: string; password: string } =
+      const credentials: { email: string; password: string } =
         this.authForm.getRawValue();
-      this.signUpWithCredentials(credentials.username, credentials.password);
+      this.signUpWithCredentials(credentials.email, credentials.password);
       this.formWithErrors = false;
     } else {
       this.formWithErrors = true;
