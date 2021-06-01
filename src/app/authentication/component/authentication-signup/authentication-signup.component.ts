@@ -8,11 +8,11 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
-import {
-  ValidatePassword,
-} from 'src/app/helper/validations/password-match';
+import { ValidatePassword } from 'src/app/helper/validations/password-match';
 import { AuthError } from 'src/app/interfaces/AuthError';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
+import { LanguageService } from 'src/app/services/language/language.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-authentication-signup',
@@ -31,6 +31,7 @@ export class AuthenticationSignupComponent implements OnInit {
     public firebaseAuth: AngularFireAuth,
     private router: Router,
     private formBuilder: FormBuilder,
+    private language: LanguageService,
   ) {
     this.authForm = formBuilder.group(
         {
@@ -48,6 +49,10 @@ export class AuthenticationSignupComponent implements OnInit {
     );
     // this.authForm.setValidators(passwordMatch);
     this.setInputFieldsProps();
+  }
+
+  ngOnInit(): void {
+    console.log('Authentication signUp -- init life state');
   }
 
   private setInputFieldsProps(): void {
@@ -95,7 +100,6 @@ export class AuthenticationSignupComponent implements OnInit {
   }
 
   public validateCredentials(): void {
-    console.log('Authentication -- validate credentials', this.authForm);
     if (this.authForm.valid === true) {
       const credentials: { email: string; password: string } =
         this.authForm.getRawValue();
@@ -109,9 +113,5 @@ export class AuthenticationSignupComponent implements OnInit {
 
   public returnToLogin(): void {
     this.router.navigateByUrl('/');
-  }
-
-  ngOnInit(): void {
-    console.log('Authentication signUp -- init life state');
   }
 }

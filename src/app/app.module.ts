@@ -9,10 +9,8 @@ import { environment } from 'src/environments/environment';
 
 import { SETTINGS as AUTH_SETTINGS } from '@angular/fire/auth';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 
 import { CookieService } from 'ngx-cookie-service';
 
@@ -34,7 +32,10 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   providers: [
     CookieService,
-    { provide: AUTH_SETTINGS, useValue: { appVerificationDisabledForTesting: true } },
+    {
+      provide: AUTH_SETTINGS,
+      useValue: { appVerificationDisabledForTesting: true },
+    },
     { provide: PERSISTENCE, useValue: 'session' },
   ],
   bootstrap: [AppComponent],

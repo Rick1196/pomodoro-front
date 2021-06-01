@@ -3,6 +3,9 @@
         <div class="title">
             <p>{{'login.title'|translate}}</p>
         </div>
+        <div>
+            <app-select-lang></app-select-lang>
+        </div>
         <form [formGroup]="authForm">
             <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username" [displayMessage]="formWithErrors"></app-basic-input-field>
             <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password" [displayMessage]="formWithErrors"></app-basic-input-field>
