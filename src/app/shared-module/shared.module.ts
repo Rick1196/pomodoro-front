@@ -6,11 +6,13 @@ import { LabelMessageComponent } from '../atoms/label-message/label-message.comp
 import { FormControlErrorsPipe } from '../helper/pipes/form-control-errors.pipe';
 import { BasicInputFieldComponent } from '../component/atoms/inputs/basic-input-field/basic-input-field.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormGroupErrorsPipe } from '../helper/pipes/form-group-errors.pipe';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
-    LabelMessageComponent,
     FormControlErrorsPipe,
+    FormGroupErrorsPipe,
+    LabelMessageComponent,
     BasicInputFieldComponent,
   ],
   imports: [
@@ -21,6 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   exports: [
     TimeFormatterPipe,
+    FormGroupErrorsPipe,
     FormsModule,
     ReactiveFormsModule,
     LabelMessageComponent,

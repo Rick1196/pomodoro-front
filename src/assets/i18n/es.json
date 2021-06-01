@@ -28,5 +28,11 @@
     },
     "authenticationErrors":{
         "auth/email-already-in-use":"La dirección de Email ya está siendo usada por otra cuenta"
+    },
+    "formErrors":{
+        "minLength":"Mínimo {{value}} caracteres",
+        "required": "Campo requerido",
+        "maxLength":"Logitud maxima de {{value}} caracteres",
+        "notMatch": "El password y el password de confirmación no coinciden"
     }
 }

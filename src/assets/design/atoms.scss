@@ -1,8 +1,8 @@
 .message-container {
     font-size: var(--data-text-size-basic);
-    display: flex;
-    align-items: center;
-    align-content: center;
+    padding: 0;
+    margin: 0;
+    
 }
 
 .message-error {

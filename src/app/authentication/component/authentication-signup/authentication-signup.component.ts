@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
+import {
+  ValidatePassword,
+} from 'src/app/helper/validations/password-match';
 import { AuthError } from 'src/app/interfaces/AuthError';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
 
@@ -19,18 +27,26 @@ export class AuthenticationSignupComponent implements OnInit {
     password: BasicInputFieldI;
     confirmPassword: BasicInputFieldI;
   } = { username: null, password: null, confirmPassword: null };
-  constructor(public firebaseAuth: AngularFireAuth, private router: Router) {
-    this.authForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-      ]),
-      confirmPassword: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-      ]),
-    });
+  constructor(
+    public firebaseAuth: AngularFireAuth,
+    private router: Router,
+    private formBuilder: FormBuilder,
+  ) {
+    this.authForm = formBuilder.group(
+        {
+          email: new FormControl('', [Validators.required, Validators.email]),
+          password: new FormControl('', [
+            Validators.required,
+            Validators.minLength(8),
+          ]),
+          confirmPassword: new FormControl('', [
+            Validators.required,
+            Validators.minLength(8),
+          ]),
+        },
+        { validators: [ValidatePassword.validate] },
+    );
+    // this.authForm.setValidators(passwordMatch);
     this.setInputFieldsProps();
   }
 
@@ -79,12 +95,14 @@ export class AuthenticationSignupComponent implements OnInit {
   }
 
   public validateCredentials(): void {
+    console.log('Authentication -- validate credentials', this.authForm);
     if (this.authForm.valid === true) {
       const credentials: { email: string; password: string } =
         this.authForm.getRawValue();
       this.signUpWithCredentials(credentials.email, credentials.password);
       this.formWithErrors = false;
     } else {
+      console.log('Authentication -- form error groups', this.authForm);
       this.formWithErrors = true;
     }
   }
