@@ -13,17 +13,25 @@ export class LanguageService {
   ) {}
 
   initializeLanguageApp(): void {
-    let userLang = navigator.language.split('-')[0];
-    if (userLang === null || userLang === undefined) {
-      userLang = 'en';
+    if (
+      this.currentLanguage() !== null &&
+      this.currentLanguage() !== undefined &&
+      this.currentLanguage() !== ''
+    ) {
+      this.translate.setDefaultLang(this.currentLanguage());
     } else {
-      // if user browser language is not supported
-      if (!environment.languages.includes(userLang)) {
+      let userLang = navigator.language.split('-')[0];
+      if (userLang === null || userLang === undefined) {
         userLang = 'en';
+      } else {
+        // if user browser language is not supported
+        if (!environment.languages.includes(userLang)) {
+          userLang = 'en';
+        }
       }
+      this.cookieService.set('lang', userLang);
+      this.translate.setDefaultLang(userLang);
     }
-    this.cookieService.set('lang', userLang);
-    this.translate.setDefaultLang(userLang);
   }
 
   changeLanguage(lang: string): void {
