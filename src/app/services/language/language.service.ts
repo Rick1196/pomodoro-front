@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class LanguageService {
   constructor(
     private cookieService: CookieService,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {}
 
   initializeLanguageApp(): void {

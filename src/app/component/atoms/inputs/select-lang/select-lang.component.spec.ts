@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SelectLangComponent } from './select-lang.component';
 
@@ -8,9 +9,9 @@ describe('SelectLangComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectLangComponent ]
-    })
-    .compileComponents();
+      declarations: [SelectLangComponent],
+      imports: [TranslateModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {

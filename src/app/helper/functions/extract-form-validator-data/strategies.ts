@@ -47,12 +47,10 @@ export function selectExtractValidationErrorStrategy(
     formControl: FormControl,
 ): FormErrorI {
   switch (errorKey) {
+    case 'max':
     case 'min':
       return extractLimitedValueValidatorsData(formControl);
-    case 'max':
-      return extractLimitedValueValidatorsData(formControl);
     case 'minLength':
-      return extractLengthValidatorsData(formControl);
     case 'maxLength':
       return extractLengthValidatorsData(formControl);
     default:

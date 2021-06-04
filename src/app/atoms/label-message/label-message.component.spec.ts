@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { LabelMessageComponent } from './label-message.component';
 
@@ -8,9 +9,10 @@ describe('LabelMessageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LabelMessageComponent ]
-    })
-    .compileComponents();
+      declarations: [LabelMessageComponent],
+      imports: [
+        TranslateModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {
