@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimeFormatterPipe } from '../helper/pipes/timeFormatter/time-formater.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LabelMessageComponent } from '../atoms/label-message/label-message.component';
+import { LabelMessageComponent } from '../component/atoms/texts/label-message/label-message.component';
 import { FormControlErrorsPipe } from '../helper/pipes/form-control-errors.pipe';
 import { BasicInputFieldComponent } from '../component/atoms/inputs/basic-input-field/basic-input-field.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormGroupErrorsPipe } from '../helper/pipes/form-group-errors.pipe';
 import { SelectLangComponent } from '../component/atoms/inputs/select-lang/select-lang.component';
+import { InputErrorLabelComponent } from '../component/atoms/texts/input-error-label/input-error-label.component';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -16,6 +17,7 @@ import { SelectLangComponent } from '../component/atoms/inputs/select-lang/selec
     LabelMessageComponent,
     BasicInputFieldComponent,
     SelectLangComponent,
+    InputErrorLabelComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { SelectLangComponent } from '../component/atoms/inputs/select-lang/selec
     BasicInputFieldComponent,
     TranslateModule,
     SelectLangComponent,
+    InputErrorLabelComponent,
   ],
 })
 export class SharedModule {}

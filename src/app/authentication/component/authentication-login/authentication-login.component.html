@@ -7,8 +7,8 @@
             <app-select-lang></app-select-lang>
         </div>
         <form [formGroup]="authForm">
-            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username" [displayMessage]="formWithErrors"></app-basic-input-field>
-            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password" [displayMessage]="formWithErrors"></app-basic-input-field>
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username"></app-basic-input-field>
+            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password"></app-basic-input-field>
         </form>
         <div class="row-container">
             <button class="button-row" (click)="validateCredentials()">Login</button>

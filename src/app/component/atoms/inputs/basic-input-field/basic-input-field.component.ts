@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
 
@@ -6,10 +6,22 @@ import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
   selector: 'app-basic-input-field',
   templateUrl: './basic-input-field.component.html',
 })
-export class BasicInputFieldComponent {
+export class BasicInputFieldComponent implements OnInit {
   @Input() inputProperties: BasicInputFieldI;
-  @Input() displayMessage: boolean;
+  public displayMessage: boolean;
   @Input() formGroup: FormGroup;
   @Input() containerClass: string;
   constructor() {}
+  ngOnInit(): void {
+    this.formGroup.get(this.inputProperties.name).valueChanges.subscribe({
+      next: (_) => {
+        this.displayMessage = this.formGroup.get(
+            this.inputProperties.name,
+        ).dirty;
+      },
+      error: (error) => {
+        console.error('Basic input filed, status subscription', error);
+      },
+    });
+  }
 }
