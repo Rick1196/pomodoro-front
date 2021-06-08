@@ -8,7 +8,7 @@ import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
 })
 export class BasicInputFieldComponent implements OnInit {
   @Input() inputProperties: BasicInputFieldI;
-  public displayMessage: boolean;
+  public displayMessage: boolean = false;
   @Input() formGroup: FormGroup;
   @Input() containerClass: string;
   constructor() {}

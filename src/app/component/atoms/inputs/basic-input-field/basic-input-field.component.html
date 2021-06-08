@@ -1,5 +1,5 @@
 <div [class]="containerClass" [formGroup]="formGroup">
     <input [class]="inputProperties.class" [formControlName]="inputProperties.name" [type]="inputProperties.type" [name]="inputProperties.name" [id]="inputProperties.id" [placeholder]="(inputProperties.placeholder|translate)"
         [autocomplete]="inputProperties.autocomplete">
-    <app-label-message class="message-error" *ngIf="displayMessage === true" [message]="((inputProperties.formControl|formControlErrors))"></app-label-message>
+    <app-input-error-label class="message-error" *ngIf="displayMessage === true"  [errorData]="((inputProperties.formControl|formControlErrors))"></app-input-error-label>
 </div>

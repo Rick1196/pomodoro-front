@@ -36,6 +36,17 @@ describe('FormControlErrorsPipe', () => {
     expect(errorValue).toEqual(testError);
   });
 
+  it('should return null on a valid form', () => {
+    const pipe = new FormControlErrorsPipe();
+    const form = new FormControl('ipnqsVlmrq', [
+      Validators.required,
+      Validators.minLength(9),
+    ]);
+    const errorValue: FormErrorI = pipe.transform(form);
+    const testError: FormErrorI = null;
+    expect(errorValue).toEqual(testError);
+  });
+
   it('should return the key and value from an  error in a minLength validation', () => {
     const pipe = new FormControlErrorsPipe();
     const form = new FormControl('r', [
