@@ -50,8 +50,8 @@ export function selectExtractValidationErrorStrategy(
     case 'max':
     case 'min':
       return extractLimitedValueValidatorsData(formControl);
-    case 'minLength':
-    case 'maxLength':
+    case 'minlength':
+    case 'maxlength':
       return extractLengthValidatorsData(formControl);
     default:
       return extractGenericValidatorsData(formControl);
