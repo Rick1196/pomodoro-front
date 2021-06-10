@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 @Component({
   selector: 'app-authentication-login',
   templateUrl: './authentication-login.component.html',
@@ -15,7 +16,11 @@ export class AuthenticationLoginComponent implements OnInit {
     username: BasicInputFieldI;
     password: BasicInputFieldI;
   } = { username: null, password: null };
-  constructor(public firebaseAuth: AngularFireAuth, private router: Router) {
+  constructor(
+    public firebaseAuth: AngularFireAuth,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+  ) {
     this.authForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -46,8 +51,8 @@ export class AuthenticationLoginComponent implements OnInit {
   }
 
   public googleLogin(): void {
-    this.firebaseAuth
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    this.authenticationService
+        .googleLogin()
         .then((data: firebase.auth.UserCredential) => {
           console.log('Authentication -- google login', data);
         })
@@ -57,8 +62,8 @@ export class AuthenticationLoginComponent implements OnInit {
   }
 
   public credentialsLogin(username: string, password: string): void {
-    this.firebaseAuth
-        .signInWithEmailAndPassword(username, password)
+    this.authenticationService
+        .credentialsLogin(username, password)
         .then((data: firebase.auth.UserCredential) => {
           console.log('Authentication -- credentials login', data);
         })

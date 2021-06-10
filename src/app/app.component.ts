@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { AuthenticationService } from './services/authentication/authentication.service';
 import { LanguageService } from './services/language/language.service';
 
 @Component({
@@ -9,7 +9,12 @@ import { LanguageService } from './services/language/language.service';
 })
 export class AppComponent {
   title = 'pomodoro-front';
-  constructor(private language: LanguageService) {
+  constructor(private language: LanguageService, private authenticationService: AuthenticationService) {
     this.language.initializeLanguageApp();
+    this.authenticationService.getAuthenticationStatus().subscribe({
+      next: (data:any) => {
+        console.log(data);
+      },
+    });
   }
 }
