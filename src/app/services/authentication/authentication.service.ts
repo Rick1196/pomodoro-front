@@ -27,4 +27,20 @@ export class AuthenticationService {
   public getAuthenticationStatus():Observable<firebase.User> {
     return this.firebaseAuth.authState;
   }
+
+  public isAuthenticated(): Observable<firebase.User> {
+    return this.firebaseAuth.authState;
+  }
+
+  public async isGuest(): Promise<boolean> {
+    return new Promise((resolve)=>{
+      this.firebaseAuth.authState.toPromise().then((user:firebase.User)=>{
+        if (user || user !== null || user !== undefined) {
+          resolve(false);
+        } else {
+          resolve(true);
+        }
+      });
+    });
+  }
 }

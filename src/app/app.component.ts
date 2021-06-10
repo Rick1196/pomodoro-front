@@ -11,10 +11,5 @@ export class AppComponent {
   title = 'pomodoro-front';
   constructor(private language: LanguageService, private authenticationService: AuthenticationService) {
     this.language.initializeLanguageApp();
-    this.authenticationService.getAuthenticationStatus().subscribe({
-      next: (data:any) => {
-        console.log(data);
-      },
-    });
   }
 }
