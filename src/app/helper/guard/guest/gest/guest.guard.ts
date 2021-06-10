@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {
   Router,
-  CanLoad,
-  Route,
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators/map';
@@ -11,18 +12,19 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
 @Injectable({
   providedIn: 'root',
 })
-export class GuestGuard implements CanLoad {
+export class GuestGuard implements CanActivate {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
   ) {}
-  canLoad(
-      route: Route): Observable<boolean> {
+  canActivate(
+      route: ActivatedRouteSnapshot,
+      state: RouterStateSnapshot): Observable<boolean> {
     return this.authenticationService.isAuthenticated().pipe(map((user) => {
       if (user) {
         this.router.navigateByUrl('/board');
       }
-      return (user)? false:true;
+      return (!user)? true:false;
     }));
   }
 }

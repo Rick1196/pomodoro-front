@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuestGuard } from './helper/guard/guest/gest/guest.guard';
 import { UserGuard } from './helper/guard/user/user-auth-guard/user.guard';
 
 const routes: Routes = [
@@ -10,7 +9,6 @@ const routes: Routes = [
       import('./authentication/authentication.module').then(
           (m) => m.AuthenticationModule,
       ),
-    canLoad: [GuestGuard],
   },
   {
     path: 'pomodoro',
