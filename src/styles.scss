@@ -2,3 +2,6 @@
 @import './assets/design/main.scss';
 @import './assets/design/atoms.scss';
 @import './assets/design/pomodoro.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

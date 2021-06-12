@@ -55,6 +55,7 @@ export class AuthenticationLoginComponent implements OnInit {
         .googleLogin()
         .then((data: firebase.auth.UserCredential) => {
           console.log('Authentication -- google login', data);
+          this.router.navigateByUrl('/board');
         })
         .catch((error: any) => {
           console.error('Authentication -- google authentication', error);
@@ -66,6 +67,7 @@ export class AuthenticationLoginComponent implements OnInit {
         .credentialsLogin(username, password)
         .then((data: firebase.auth.UserCredential) => {
           console.log('Authentication -- credentials login', data);
+          this.router.navigateByUrl('/board');
         })
         .catch((error: any) => {
           console.error('Authentication -- credentials authentication', error);
