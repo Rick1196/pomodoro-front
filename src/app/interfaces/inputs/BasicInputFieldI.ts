@@ -8,4 +8,5 @@ export interface BasicInputFieldI {
   class: string;
   placeholder: string;
   type: string;
+  label:string|null|undefined;
 }

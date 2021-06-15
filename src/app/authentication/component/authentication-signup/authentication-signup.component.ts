@@ -64,6 +64,7 @@ export class AuthenticationSignupComponent implements OnInit {
       name: 'email',
       placeholder: 'authenticationFields.email.placeholder',
       type: 'text',
+      label: 'authenticationFields.email.placeholder',
     };
 
     this.inputFields.password = {
@@ -74,6 +75,7 @@ export class AuthenticationSignupComponent implements OnInit {
       name: 'password',
       placeholder: 'authenticationFields.password.placeholder',
       type: 'password',
+      label: 'authenticationFields.password.placeholder',
     };
 
     this.inputFields.confirmPassword = {
@@ -84,6 +86,7 @@ export class AuthenticationSignupComponent implements OnInit {
       name: 'confirmPassword',
       placeholder: 'authenticationFields.confirmPassword.placeholder',
       type: 'password',
+      label: 'authenticationFields.confirmPassword.placeholder',
     };
   }
 

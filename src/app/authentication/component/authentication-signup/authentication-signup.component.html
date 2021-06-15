@@ -1,21 +1,23 @@
-<div class="login-container">
-    <div class="login-card">
-        <div class="title">
-            <p>{{'signUp.title'|translate}}</p>
-        </div>
-        <div>
-            <app-select-lang></app-select-lang>
-        </div>
-        <form [formGroup]="authForm" (keyup.enter)="validateCredentials()">
-            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.username"></app-basic-input-field>
-            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.password"></app-basic-input-field>
-            <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm" [inputProperties]="inputFields.confirmPassword"></app-basic-input-field>
-            <app-label-message *ngIf="signUpError" class="message-error" [message]="(signUpError)"></app-label-message>
-            <app-label-message *ngIf="formWithErrors" class="message-error" [message]="((authForm|formGroupErrors))"></app-label-message>
-        </form>
-        <div class="row-container">
-            <button class="button-row" (click)="returnToLogin()">{{'signUp.loginBtn'|translate}}</button>
-            <button class="button-row" (click)="validateCredentials()">{{'signUp.sendBtn'|translate}}</button>
+<div class="login-card">
+    <div class="title-container">
+        <p class="title-text">{{'signUp.title'|translate}}</p>
+        <app-select-lang></app-select-lang>
+    </div>
+    <form [formGroup]="authForm" (keyup.enter)="validateCredentials()">
+        <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm"
+            [inputProperties]="inputFields.username"></app-basic-input-field>
+        <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm"
+            [inputProperties]="inputFields.password"></app-basic-input-field>
+        <app-basic-input-field [containerClass]="'form-group'" [formGroup]="authForm"
+            [inputProperties]="inputFields.confirmPassword"></app-basic-input-field>
+        <app-label-message *ngIf="signUpError" class="message-error" [message]="(signUpError)"></app-label-message>
+        <app-label-message *ngIf="formWithErrors" class="message-error" [message]="((authForm|formGroupErrors))">
+        </app-label-message>
+    </form>
+    <div class="bottom-container">
+        <div class="button-grid">
+            <button class="button" (click)="returnToLogin()">{{'signUp.loginBtn'|translate}}</button>
+            <button class="button" (click)="validateCredentials()">{{'signUp.sendBtn'|translate}}</button>
         </div>
     </div>
 </div>

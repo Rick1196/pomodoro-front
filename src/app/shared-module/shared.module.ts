@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormGroupErrorsPipe } from '../helper/pipes/form-group-errors.pipe';
 import { SelectLangComponent } from '../component/atoms/inputs/select-lang/select-lang.component';
 import { InputErrorLabelComponent } from '../component/atoms/texts/input-error-label/input-error-label.component';
+import { HeaderComponent } from '../component/shared/header/header.component';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -18,6 +19,7 @@ import { InputErrorLabelComponent } from '../component/atoms/texts/input-error-l
     BasicInputFieldComponent,
     SelectLangComponent,
     InputErrorLabelComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { InputErrorLabelComponent } from '../component/atoms/texts/input-error-l
     TranslateModule,
     SelectLangComponent,
     InputErrorLabelComponent,
+    HeaderComponent,
   ],
 })
 export class SharedModule {}
