@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import firebase from 'firebase/app';
-import { Router } from '@angular/router';
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
+  selector: 'app-profile-card',
+  templateUrl: './profile-card.component.html',
 })
-export class HeaderComponent {
+export class ProfileCardComponent {
   public imgProfileSrc: string | null = null;
+  public userData: firebase.User | null = null;
   public cardProfileStatus = false;
   constructor(
-    public authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private router: Router
   ) {
     this.authenticationService.getAuthenticationStatus().subscribe({
       next: (user: firebase.User) => {
         console.log('Header --- user data subscription', user);
-        this.imgProfileSrc = user.photoURL;
+        this.userData = user;
       },
       error: (err: any) => {
         console.error('Header --- user data subscription', err);
@@ -24,9 +25,8 @@ export class HeaderComponent {
     });
   }
 
-  public changeCardProfileStatus() {
-    const nextStatus = !this.cardProfileStatus;
-    console.log('Changing card status to', nextStatus);
-    this.cardProfileStatus = nextStatus;
+  async signOut(): Promise<void> {
+    await this.authenticationService.signOut();
+    this.router.navigateByUrl('/');
   }
 }

@@ -18,16 +18,8 @@
                     <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
                 </svg>
             </div>
-            <img class="profile-img" [src]="imgProfileSrc" alt="" (click)="isOpen=!isOpen">
+            <img class="profile-img" id="profile-img" [src]="imgProfileSrc" alt="" (click)="changeCardProfileStatus()">
         </div>
     </div>
 </div>
-<div class="profile-card">
-    <div class="title-container">
-        <img class="profile-img-large" [src]="imgProfileSrc" alt="" (click)="isOpen=!isOpen">
-        <p class="title-text">Ricardo Perez</p>
-    </div>
-    <div class="bottom-container">
-        <button class="button" (click)="signOut()">Sign out</button>
-    </div>
-</div>
+<app-profile-card  *ngIf="cardProfileStatus === true" class="profile-card" (appClickOutside)="changeCardProfileStatus()" [excludedIds]="['profile-img']"></app-profile-card>

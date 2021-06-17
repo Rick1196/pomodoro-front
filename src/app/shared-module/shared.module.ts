@@ -10,6 +10,8 @@ import { FormGroupErrorsPipe } from '../helper/pipes/form-group-errors.pipe';
 import { SelectLangComponent } from '../component/atoms/inputs/select-lang/select-lang.component';
 import { InputErrorLabelComponent } from '../component/atoms/texts/input-error-label/input-error-label.component';
 import { HeaderComponent } from '../component/shared/header/header.component';
+import { ProfileCardComponent } from '../component/shared/header/profile-card/profile-card.component';
+import { ClickOutsideDirective } from '../helper/directives/click-outside/click-outside.directive';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -20,6 +22,8 @@ import { HeaderComponent } from '../component/shared/header/header.component';
     SelectLangComponent,
     InputErrorLabelComponent,
     HeaderComponent,
+    ProfileCardComponent,
+    ClickOutsideDirective,
   ],
   imports: [
     CommonModule,
@@ -39,6 +43,8 @@ import { HeaderComponent } from '../component/shared/header/header.component';
     SelectLangComponent,
     InputErrorLabelComponent,
     HeaderComponent,
+    ProfileCardComponent,
+    ClickOutsideDirective,
   ],
 })
 export class SharedModule {}

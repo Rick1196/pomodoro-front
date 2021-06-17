@@ -29,6 +29,9 @@
     "authenticationErrors":{
         "auth/email-already-in-use":"The Email Address Is Already In Use By Another Account."
     },
+    "profileCard":{
+        "signOut":"Sign Out"
+    },
     "formErrors":{
         "minLength":"Minimum {{value}} caracters",
         "required": "Required field",
