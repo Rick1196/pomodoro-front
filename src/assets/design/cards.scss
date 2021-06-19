@@ -11,8 +11,22 @@
     padding: 20px;
 }
 
+app-authentication-login,
+app-authentication-signup{
+    height:100%;
+}
+
+.login-container{
+    display: flex;
+    height: 100%;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-card {
     @extend .card;
+    align-self: center;
     max-width: 1250px;
     max-height: 90%;
     height: 500px;
