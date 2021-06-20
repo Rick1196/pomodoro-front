@@ -1,10 +1,9 @@
-
-.grid-columns-container{
+.grid-columns-container {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;
-    align-self: stretch;
+    // align-self: stretch;
     width: 100%;
     padding: 2em;
 }
@@ -12,14 +11,19 @@
 .content-wrapper {
     display: flex;
     flex-grow: 1;
+    flex: 1;
     flex-direction: column;
     color: var(--theme-color);
+    align-items: stretch;
     padding: 20px 40px;
-    height: 100%;
+    max-height: 830px;
+    flex-shrink: 1;
     overflow: auto;
+    // avoid all containers adjust to the same height
+    align-self: flex-start;
     background-color: var(--theme-bg-color);
     backdrop-filter: blur(20px);
-    margin:2em; 
+    margin: 2em;
     @media screen and (max-width: 510px) {
         padding: 20px;
     }
@@ -54,5 +58,21 @@
         pointer-events: none;
         transition: 0.3s;
         background-color: var(--overlay-bg);
+    }
+}
+
+.card-item {
+    flex-grow: 1;
+    flex: 1;
+    color: var(--theme-color);
+    padding: 20px 40px;
+    overflow: hidden;
+    background-color: rgb(29, 52, 94);
+    backdrop-filter: blur(30px);
+    margin: 2em;
+    box-shadow: 8px 8px 6px -6px rgb(132, 139, 153);
+    & p {
+        max-height: 100px;
+        overflow-y: hidden;
     }
 }
