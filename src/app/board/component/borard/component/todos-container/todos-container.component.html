@@ -1,0 +1,8 @@
+<div class="title-container">
+    <p class="title-text">Card 1</p>
+</div>
+<app-card-container class="inner-container">
+</app-card-container>
+<div class="add-card-item">
+   <textarea type="text" [formControl]="todoTitleForm" (keyup.enter)="saveNewTodoTitle()"></textarea>
+</div>
