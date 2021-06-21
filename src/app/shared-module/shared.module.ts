@@ -12,6 +12,7 @@ import { InputErrorLabelComponent } from '../component/atoms/texts/input-error-l
 import { HeaderComponent } from '../component/shared/header/header.component';
 import { ProfileCardComponent } from '../component/shared/header/profile-card/profile-card.component';
 import { ClickOutsideDirective } from '../helper/directives/click-outside/click-outside.directive';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -30,6 +31,7 @@ import { ClickOutsideDirective } from '../helper/directives/click-outside/click-
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
+    DragDropModule,
   ],
   exports: [
     TimeFormatterPipe,
@@ -45,6 +47,7 @@ import { ClickOutsideDirective } from '../helper/directives/click-outside/click-
     HeaderComponent,
     ProfileCardComponent,
     ClickOutsideDirective,
+    DragDropModule,
   ],
 })
 export class SharedModule {}

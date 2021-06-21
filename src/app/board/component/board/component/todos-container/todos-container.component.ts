@@ -1,3 +1,5 @@
+import { CdkDropList } from '@angular/cdk/drag-drop';
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -6,12 +8,15 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './todos-container.component.html',
 })
 export class TodosContainerComponent implements OnInit {
+  @Input() connectedLists!: CdkDropList[];
   public todoTitleForm = new FormControl(null, [
     Validators.required,
     Validators.minLength(1),
     Validators.pattern('(.+[a-zA-Z])(\n+)'),
   ]);
   constructor() {}
+
+  ngOnInit(): void {}
 
   public saveNewTodoTitle(): void {
     if (this.todoTitleForm.invalid === false) {
@@ -23,5 +28,7 @@ export class TodosContainerComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  public dropped(event: any): void {
+    console.log(event);
+  }
 }
