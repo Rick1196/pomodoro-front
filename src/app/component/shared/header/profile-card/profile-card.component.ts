@@ -12,7 +12,7 @@ export class ProfileCardComponent {
   public cardProfileStatus = false;
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
   ) {
     this.authenticationService.getAuthenticationStatus().subscribe({
       next: (user: firebase.User) => {

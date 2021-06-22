@@ -12,7 +12,6 @@ import { ValidatePassword } from 'src/app/helper/validations/password-match';
 import { AuthError } from 'src/app/interfaces/AuthError';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
 import { LanguageService } from 'src/app/services/language/language.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-authentication-signup',
@@ -47,7 +46,6 @@ export class AuthenticationSignupComponent implements OnInit {
         },
         { validators: [ValidatePassword.validate] },
     );
-    // this.authForm.setValidators(passwordMatch);
     this.setInputFieldsProps();
   }
 

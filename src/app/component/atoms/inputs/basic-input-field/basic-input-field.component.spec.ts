@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { By } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 
@@ -28,6 +27,7 @@ describe('BasicInputFieldComponent', () => {
       name: 'test',
       placeholder: 'test',
       type: 'text',
+      label: 'Label text',
     };
     component.formGroup = new FormGroup({
       test: new FormControl('test', [Validators.required, Validators.minLength(18)]),

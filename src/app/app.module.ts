@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [AppComponent],
   imports: [
