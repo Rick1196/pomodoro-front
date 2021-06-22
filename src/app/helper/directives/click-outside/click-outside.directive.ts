@@ -14,7 +14,6 @@ export class ClickOutsideDirective {
   @Output() appClickOutside = new EventEmitter<void>();
   @Input() excludedIds: Array<string> = [];
   constructor(private elementRef: ElementRef) {
-    console.log('clickOutside directive constructor', elementRef);
   }
 
   @HostListener('document:click', ['$event.target'])

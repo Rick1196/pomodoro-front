@@ -47,6 +47,7 @@
     "@angular/compiler-cli": "~11.2.1",
     "@babel/core": "^7.14.5",
     "@compodoc/compodoc": "^1.1.11",
+    "@ngneat/spectator": "^7.2.0",
     "@nrwl/cli": "^12.3.3",
     "@nrwl/nx-cloud": "^12.1.1",
     "@nrwl/tao": "^12.3.3",
