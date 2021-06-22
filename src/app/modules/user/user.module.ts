@@ -8,7 +8,7 @@ import { SharedModule } from 'src/app/shared-module/shared.module';
 
 @NgModule({
   declarations: [
-    UserSectionComponent
+    UserSectionComponent,
   ],
   imports: [
     CommonModule,
