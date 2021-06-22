@@ -114,6 +114,7 @@
 
 .notification {
   position: relative;
+  margin: 5px;
   &-number {
     position: absolute;
     background-color: #3a6df0;
@@ -129,6 +130,12 @@
     top: -6px;
   }
   & + svg {
+    margin-left: 22px;
+    @media screen and (max-width: 945px) {
+      display: none;
+    }
+  }
+  & + img {
     margin-left: 22px;
     @media screen and (max-width: 945px) {
       display: none;
