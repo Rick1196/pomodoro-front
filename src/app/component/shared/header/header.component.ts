@@ -11,7 +11,7 @@ export class HeaderComponent {
   public cardProfileStatus = false;
   constructor(
     public authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
   ) {
     this.authenticationService.getAuthenticationStatus().subscribe({
       next: (user: firebase.User) => {

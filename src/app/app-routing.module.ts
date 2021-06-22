@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserGuard } from './helper/guard/user/user-auth-guard/user.guard';
+import { UserSectionComponent } from './modules/user/user-section/user-section.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./authentication/authentication.module').then(
+      import('./modules/authentication/authentication.module').then(
           (m) => m.AuthenticationModule,
       ),
   },
@@ -18,8 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'board',
+    component: UserSectionComponent,
     loadChildren: () =>
-      import('./board/board.module').then((m) => m.BoardModule),
+      import('./modules/user/user.module').then((m) => m.UserModule),
     canLoad: [UserGuard],
   },
 ];
