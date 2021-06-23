@@ -24,6 +24,13 @@ const routes: Routes = [
       import('./modules/user/user.module').then((m) => m.UserModule),
     canLoad: [UserGuard],
   },
+  {
+    path: 'teams',
+    component: UserSectionComponent,
+    loadChildren: () =>
+      import('./modules/teams/teams.module').then((m) => m.TeamsModule),
+    canLoad: [UserGuard],
+  },
 ];
 
 @NgModule({

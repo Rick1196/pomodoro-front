@@ -3,8 +3,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
+import { take } from 'rxjs/operators';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { TeamsService } from 'src/app/services/teams/teams.service';
+import { UsersService } from 'src/app/services/users/users.service';
 @Component({
   selector: 'app-authentication-login',
   templateUrl: './authentication-login.component.html',
@@ -18,8 +21,10 @@ export class AuthenticationLoginComponent implements OnInit {
   } = { username: null, password: null };
   constructor(
     public firebaseAuth: AngularFireAuth,
-    private router: Router,
-    private authenticationService: AuthenticationService,
+    public router: Router,
+    public authenticationService: AuthenticationService,
+    public userService: UsersService,
+    public teamsService: TeamsService,
   ) {
     this.authForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
@@ -52,12 +57,35 @@ export class AuthenticationLoginComponent implements OnInit {
     };
   }
 
+
+  ngOnInit(): void {
+    console.log('Authentication login -- init life state');
+  }
+
+  private checkUserTeams(userId:string): void {
+    this.teamsService.readUserTeams(userId).snapshotChanges().pipe(take(1)).subscribe({
+      next: (teams)=>{
+        console.log('User login --- user teams', teams);
+        if (teams.length > 0) {
+          this.router.navigateByUrl('/board');
+        } else {
+          this.router.navigateByUrl('/teams');
+        }
+      },
+      error: (err)=>{
+        console.error(err);
+      },
+    });
+  }
+
   public googleLogin(): void {
     this.authenticationService
         .googleLogin()
         .then((data: firebase.auth.UserCredential) => {
+          this.userService.createUser(data.user.uid);
           console.log('Authentication -- google login', data);
-          this.router.navigateByUrl('/board');
+          this.checkUserTeams(data.user.uid);
+          // this.router.navigateByUrl('/board');
         })
         .catch((error: any) => {
           console.error('Authentication -- google authentication', error);
@@ -94,9 +122,5 @@ export class AuthenticationLoginComponent implements OnInit {
 
   public gotoSignUp(): void {
     this.router.navigateByUrl('/signUp');
-  }
-
-  ngOnInit(): void {
-    console.log('Authentication login -- init life state');
   }
 }

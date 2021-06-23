@@ -13,6 +13,7 @@ import { HeaderComponent } from '../component/shared/header/header.component';
 import { ProfileCardComponent } from '../component/shared/header/profile-card/profile-card.component';
 import { ClickOutsideDirective } from '../helper/directives/click-outside/click-outside.directive';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TeamsCardComponent } from '../component/shared/header/teams-card/teams-card.component';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -25,6 +26,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HeaderComponent,
     ProfileCardComponent,
     ClickOutsideDirective,
+    TeamsCardComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ProfileCardComponent,
     ClickOutsideDirective,
     DragDropModule,
+    TeamsCardComponent,
   ],
 })
 export class SharedModule {}

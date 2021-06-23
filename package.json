@@ -9,9 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "node ./decorate-angular-cli.js",
-    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "yarn docs:json && start-storybook -p 6006",
-    "build-storybook": "yarn docs:json && build-storybook"
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d ."
   },
   "private": true,
   "dependencies": {
@@ -52,10 +50,6 @@
     "@nrwl/nx-cloud": "^12.1.1",
     "@nrwl/tao": "^12.3.3",
     "@nrwl/workspace": "^12.3.3",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/angular": "^6.2.9",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
