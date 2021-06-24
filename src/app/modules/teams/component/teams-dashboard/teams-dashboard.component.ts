@@ -34,7 +34,6 @@ export class TeamsDashboardComponent implements OnInit, OnDestroy {
   readUserTeams(userId: string): void {
     this.teamsService
         .readUserTeams(userId)
-        .snapshotChanges()
         .pipe(takeUntil(this.componentDestroyed))
         .subscribe({
           next: (teams) => {

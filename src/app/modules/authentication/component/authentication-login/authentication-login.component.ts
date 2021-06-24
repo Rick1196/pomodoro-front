@@ -63,7 +63,7 @@ export class AuthenticationLoginComponent implements OnInit {
   }
 
   private checkUserTeams(userId:string): void {
-    this.teamsService.readUserTeams(userId).snapshotChanges().pipe(take(1)).subscribe({
+    this.teamsService.readUserTeams(userId).pipe(take(1)).subscribe({
       next: (teams)=>{
         console.log('User login --- user teams', teams);
         if (teams.length > 0) {

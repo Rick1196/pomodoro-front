@@ -3,10 +3,10 @@ import { TodoI } from './TodoI';
 
 export interface TeamI {
     name: string;
-    status: boolean;
-    dateCreated: boolean;
-    dateUpdated: boolean;
+    status: 'ACTIVE'| 'DISABLED'|'BLOCKED';
+    dateCreated: Date;
+    dateUpdated: Date;
     owner: UserI;
-    users: Array<UserI>;
+    users: Array<string>;
     todos: Array<TodoI>;
 }

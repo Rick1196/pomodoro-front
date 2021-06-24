@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { TeamI } from 'src/app/interfaces/TeamI';
 @Injectable({
   providedIn: 'root',
 })
 export class TeamsService {
-  constructor(public afd: AngularFireDatabase) {
+  constructor(public afs: AngularFirestore) {}
+
+  public createTeam(team: TeamI) {
+    this.afs.collection('teams').add(team);
   }
 
-  public createTeam(team:TeamI):void {
-    this.afd.object('/teams').set(team);
-  }
-
-  public readUserTeams(userId:string): AngularFireList<TeamI> {
-    return this.afd.list<TeamI>('/teams/users', (ref) => {
-      return ref.orderByChild('id').equalTo(userId);
-    });
+  public readUserTeams(userId: string): Observable<TeamI[]> {
+    return this.afs
+        .collection<TeamI>('teams', (ref) => {
+          return ref.where('users', 'array-contains', userId );
+        })
+        .valueChanges();
   }
 }

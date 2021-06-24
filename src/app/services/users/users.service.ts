@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { UserI } from 'src/app/interfaces/inputs/UserI';
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(public afd: AngularFireDatabase) {}
+  constructor(public afs: AngularFirestore) {}
 
   /**
    * Verifies if an user id exist if it isn't, it register the id
@@ -14,13 +15,12 @@ export class UsersService {
    */
   public createUser(userId: string) {
     this.queryUser(userId)
-        .snapshotChanges()
         .pipe(take(1))
         .subscribe({
           next: (users) => {
             console.log('Users --- users list', users);
             if (users.length === 0) {
-              this.afd.object('/users').set({ id: userId });
+              this.afs.collection('users').add({ id: userId });
               console.log('User created at /users', userId);
             }
           },
@@ -35,9 +35,9 @@ export class UsersService {
    * @param {string} userId searched
    * @returns {Observable} list of users
    */
-  public queryUser(userId: string): AngularFireList<UserI> {
-    return this.afd.list<{ id: string }>('/users', (ref) => {
-      return ref.orderByChild('id').equalTo(userId);
-    });
+  public queryUser(userId: string): Observable<UserI[]> {
+    return this.afs
+        .collection<UserI>('users', (ref) => ref.where('id', '==', userId))
+        .valueChanges();
   }
 }
