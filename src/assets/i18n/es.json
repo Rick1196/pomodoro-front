@@ -37,5 +37,11 @@
         "required": "Campo requerido",
         "maxLength":"Logitud maxima de {{value}} caracteres",
         "notMatch": "El password y el password de confirmación no coinciden"
+    },
+    "header":{
+        "links":{
+            "boards":"Tablero",
+            "teams": "Equipos"
+        }
     }
 }

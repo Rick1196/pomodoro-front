@@ -14,6 +14,7 @@ import { ProfileCardComponent } from '../component/shared/header/profile-card/pr
 import { ClickOutsideDirective } from '../helper/directives/click-outside/click-outside.directive';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TeamsCardComponent } from '../component/shared/header/teams-card/teams-card.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -34,6 +35,7 @@ import { TeamsCardComponent } from '../component/shared/header/teams-card/teams-
     ReactiveFormsModule,
     TranslateModule,
     DragDropModule,
+    RouterModule,
   ],
   exports: [
     TimeFormatterPipe,

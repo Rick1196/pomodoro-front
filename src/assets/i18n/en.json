@@ -37,5 +37,11 @@
         "required": "Required field",
         "maxLength":"Maximum length of {{value}} caracters",
         "notMatch": "The password and the confirmation password do not match"
+    },
+    "header":{
+        "links":{
+            "boards":"Board",
+            "teams": "Teams"
+        }
     }
 }

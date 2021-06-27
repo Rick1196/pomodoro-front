@@ -3,9 +3,8 @@
         <div class="menu-circle">
         </div>
         <div class="header-menu">
-            <a class="menu-link is-active" href="#"> Apps</a>
-            <a class="menu-link notify" href="#"> Your work</a>
-            <a class="menu-link" href="#">Discover</a>
+            <a class="menu-link" [routerLink]="['/board']" routerLinkActive="is-active">{{'header.links.boards'|translate}}</a>
+            <a class="menu-link" [routerLink]="['/teams']" routerLinkActive="is-active">{{'header.links.teams'|translate}}</a>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search">
@@ -14,7 +13,6 @@
             <div class="notification">
                 <span class="notification-number">3</span>
                 <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
                     <title>54. Team 2</title>
                     <desc>Created with Sketch.</desc>
                     <defs></defs>
