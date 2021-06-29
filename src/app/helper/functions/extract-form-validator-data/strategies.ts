@@ -55,6 +55,5 @@ export function selectExtractValidationErrorStrategy(
       return extractLengthValidatorsData(formControl);
     default:
       return extractGenericValidatorsData(formControl);
-      break;
   }
 }

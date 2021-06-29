@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 @Pipe({
   name: 'formGroupErrors',
-  pure: false,
+  pure: true,
 })
 export class FormGroupErrorsPipe implements PipeTransform {
   transform(value: FormGroup): unknown {

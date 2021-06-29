@@ -24,6 +24,8 @@ export class DashboardComponent implements AfterViewInit {
     Promise.resolve().then(() => {
       this.dropsAreas = this.dropsQuery?.toArray();
       console.log(this.dropsAreas);
-    });
+    }).catch((error)=>{
+      console.error(error);
+    })
   }
 }

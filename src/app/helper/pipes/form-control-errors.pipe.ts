@@ -8,7 +8,7 @@ import {
 
 @Pipe({
   name: 'formControlErrors',
-  pure: false,
+  pure: true,
 })
 export class FormControlErrorsPipe implements PipeTransform {
   transform(value: FormControl): FormErrorI | null {
