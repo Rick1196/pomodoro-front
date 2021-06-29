@@ -10,9 +10,6 @@ import { TeamsListComponent } from './component/teams-list/teams-list.component'
 
 @NgModule({
   declarations: [
-    TeamsDashboardComponent,
-    CreateTeamComponent,
-    TeamsListComponent,
   ],
   imports: [
     CommonModule,

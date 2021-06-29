@@ -16,6 +16,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TeamsCardComponent } from '../component/shared/header/teams-card/teams-card.component';
 import { RouterModule } from '@angular/router';
 import { SideMenuComponent } from '../component/shared/side-menu/side-menu.component';
+import { CreateTeamComponent } from '../modules/teams/component/create-team/create-team.component';
+import { TeamsListComponent } from '../modules/teams/component/teams-list/teams-list.component';
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -29,7 +31,9 @@ import { SideMenuComponent } from '../component/shared/side-menu/side-menu.compo
     ProfileCardComponent,
     ClickOutsideDirective,
     TeamsCardComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    CreateTeamComponent,
+    TeamsListComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +59,9 @@ import { SideMenuComponent } from '../component/shared/side-menu/side-menu.compo
     ClickOutsideDirective,
     DragDropModule,
     TeamsCardComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    CreateTeamComponent,
+    TeamsListComponent,
   ],
 })
 export class SharedModule {}
