@@ -43,5 +43,10 @@
             "boards":"Board",
             "teams": "Teams"
         }
+    },
+    "teams":{
+        "createTeam":{
+            "inputName":"Team name"
+        }
     }
 }

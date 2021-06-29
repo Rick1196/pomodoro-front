@@ -1,6 +1,6 @@
 <div class="app">
     <div class="header">
-        <div class="menu-circle">
+        <div class="menu-circle" (click)="toggleMenu()">
         </div>
         <div class="header-menu">
             <a class="menu-link" [routerLink]="['/board']" routerLinkActive="is-active">{{'header.links.boards'|translate}}</a>

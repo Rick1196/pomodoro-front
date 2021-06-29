@@ -10,12 +10,16 @@
 }
 
 .left-side {
-  left:0;
   flex-basis: 240px;
   border-right: 1px solid var(--border-color);
   padding: 26px;
   overflow: auto;
   flex-shrink: 0;
+  min-width: 200px;
+}
+
+.closed{
+  display: none;
 }
 
 .side-wrapper + .side-wrapper {
@@ -31,7 +35,7 @@
     display: flex;
     flex-direction: column;
     white-space: nowrap;
-    a {
+    .item {
      text-decoration: none;
      color: var(--theme-color);
      display: flex;

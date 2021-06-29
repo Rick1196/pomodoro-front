@@ -1,3 +1,3 @@
-<div>
-    <input type="text" #teamInput [formControl]="teamNameForm" (keyup.enter)="verifyName()">
+<div class="form-group">
+    <input class="simple-input" type="text" #teamInput [formControl]="teamNameForm" (keyup.enter)="verifyName()" [placeholder]="('teams.createTeam.inputName'|translate)">
 </div>

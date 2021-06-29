@@ -43,5 +43,10 @@
             "boards":"Tablero",
             "teams": "Equipos"
         }
+    },
+    "teams":{
+        "createTeam":{
+            "inputName":"Nombre del equipo"
+        }
     }
 }
