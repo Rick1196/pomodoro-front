@@ -1,8 +1,5 @@
 <div class="grid-columns-container">
-    <app-todos-container class="content-wrapper">
+    <app-todos-container class="content-wrapper" *ngFor="let section of sections|async">
     </app-todos-container>
-    <app-todos-container class="content-wrapper">
-    </app-todos-container>
-    <app-todos-container class="content-wrapper">
-    </app-todos-container>
+   <app-create-section class="content-wrapper"></app-create-section>
 </div>
