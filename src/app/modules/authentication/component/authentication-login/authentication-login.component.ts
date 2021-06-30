@@ -67,7 +67,7 @@ export class AuthenticationLoginComponent implements OnInit {
       next: (teams)=>{
         console.log('User login --- user teams', teams);
         if (teams.length > 0) {
-          this.router.navigateByUrl('/board');
+          this.router.navigate(['/board', teams[0].uid]);
         } else {
           this.router.navigateByUrl('/teams');
         }
@@ -85,7 +85,6 @@ export class AuthenticationLoginComponent implements OnInit {
           this.userService.createUser(data.user.uid);
           console.log('Authentication -- google login', data);
           this.checkUserTeams(data.user.uid);
-          // this.router.navigateByUrl('/board');
         })
         .catch((error: any) => {
           console.error('Authentication -- google authentication', error);

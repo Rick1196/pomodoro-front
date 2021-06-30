@@ -16,8 +16,10 @@ export class ProfileCardComponent {
   ) {
     this.authenticationService.getAuthenticationStatus().subscribe({
       next: (user: firebase.User) => {
-        console.log('Header --- user data subscription', user);
-        this.userData = user;
+        if(user){
+          console.log('Header --- user data subscription', user);
+          this.userData = user;
+        }
       },
       error: (err: any) => {
         console.error('Header --- user data subscription', err);

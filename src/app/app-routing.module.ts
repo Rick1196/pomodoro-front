@@ -18,7 +18,7 @@ const routes: Routes = [
     canLoad: [UserGuard],
   },
   {
-    path: 'board',
+    path: 'board/:id',
     component: UserSectionComponent,
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => m.UserModule),

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { TeamI } from 'src/app/interfaces/TeamI';
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,12 @@ export class TeamsService {
         .collection<TeamI>('teams', (ref) => {
           return ref.where('users', 'array-contains', userId );
         })
-        .valueChanges();
+        .snapshotChanges().pipe(
+          map(changes =>
+            changes.map(c =>
+              ({ uid: c.payload.doc.id, ...c.payload.doc.data() })
+            )
+          )
+        );
   }
 }
