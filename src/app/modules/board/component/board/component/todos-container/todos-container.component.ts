@@ -2,13 +2,15 @@ import { CdkDropList } from '@angular/cdk/drag-drop';
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { SectionI } from 'src/app/interfaces/section';
 
 @Component({
   selector: 'app-todos-container',
   templateUrl: './todos-container.component.html',
 })
 export class TodosContainerComponent {
-  @Input() connectedLists!: CdkDropList[];
+  @Input() section:SectionI;
+  @Input() teamId: string;
   public todoTitleForm = new FormControl(null, [
     Validators.required,
     Validators.minLength(1),

@@ -1,8 +1,10 @@
 <div class="title-container">
-    <p class="title-text">Add new section</p>
+  <p class="title-text">{{ 'sections.createSection.title' | translate }}</p>
 </div>
-<div class="inner-container">
-    <div class="card-item">
-        <input type="text" placeholder="Create new section">
-    </div>
+<div class="add-section-input">
+  <input
+    type="text"
+    [formControl]="sectionForm"
+    (keyup.enter)="saveNewSection()"
+  >
 </div>

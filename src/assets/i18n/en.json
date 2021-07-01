@@ -48,5 +48,13 @@
         "createTeam":{
             "inputName":"Team name"
         }
+    },
+    "sections":{
+        "createSection":{
+            "title":"Create section",
+            "input":{
+                "placeholder":"Section name"
+            }
+        }
     }
 }

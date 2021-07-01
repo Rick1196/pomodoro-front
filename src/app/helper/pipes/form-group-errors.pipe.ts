@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   pure: true,
 })
 export class FormGroupErrorsPipe implements PipeTransform {
-  transform(value: FormGroup): unknown {
+  transform(value: FormGroup): string {
     console.log('Form group pipe', value);
     if (value !== null && value !== undefined && value.errors) {
       const errorKeys = Object.keys(value.errors);
