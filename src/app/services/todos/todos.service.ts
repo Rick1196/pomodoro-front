@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TodoI } from 'src/app/interfaces/TodoI';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,13 +10,15 @@ import { map } from 'rxjs/operators';
 export class TodosService {
 
   constructor(public afs: AngularFirestore) {}
-  public createTeam(todo: TodoI) {
-    this.afs.collection('todos').add(todo);
+
+  public createTodo(todo: TodoI):Promise<DocumentReference<TodoI>> {
+    return this.afs.collection<TodoI>('todos').add(todo);
   }
-  public readUserTeams(sectionId: string): Observable<TodoI[]> {
+
+  public readSectionTodos(sectionId: string): Observable<TodoI[]> {
     return this.afs
         .collection<TodoI>('todos', (ref) => {
-          return ref.where('sectionId', '==', sectionId );
+          return ref.where('sectionId', '==', sectionId ).orderBy('dateUpdated','desc');
         })
         .snapshotChanges().pipe(
           map(changes =>
@@ -25,5 +27,10 @@ export class TodosService {
             )
           )
         );
+  }
+  
+  public updateTodo(todo:TodoI):Promise<void>{
+    console.log('To update', todo);
+    return this.afs.collection('todos').doc(todo.uid).update(todo);
   }
 }

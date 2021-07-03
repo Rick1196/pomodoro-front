@@ -1,5 +1,5 @@
-<div class="grid-columns-container">
-    <app-todos-container class="content-wrapper" *ngFor="let section of sections|async" [section]="section" [teamId]="teamId">
+<div class="grid-columns-container" cdkDropListGroup>
+    <app-todos-container class="content-wrapper" *ngFor="let section of sections|async" [section]="section" [teamId]="teamId" cdkDropList [cdkDropListConnectedTo]="dropsAreas"  (cdkDropListDropped)="dropped($event, section)">
     </app-todos-container>
    <app-create-section class="content-wrapper-small" [teamId]="teamId"></app-create-section>
 </div>

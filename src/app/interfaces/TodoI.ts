@@ -1,5 +1,5 @@
 export interface TodoI{
-    $uid:string;
+    uid?:string;
     title:string;
     description:string;
     comment:string;

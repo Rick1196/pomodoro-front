@@ -1,7 +1,7 @@
 <div class="title-container">
     <p class="title-text">{{section.name}}</p>
 </div>
-<app-card-container class="inner-container" cdkDropList (cdkDropListDropped)="dropped($event)">
+<app-card-container class="inner-container" [sectionId]="section.uid">
 </app-card-container>
 <div class="add-card-item">
    <textarea type="text" [formControl]="todoTitleForm" (keyup.enter)="saveNewTodoTitle()"></textarea>
