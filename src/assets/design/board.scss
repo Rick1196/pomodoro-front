@@ -11,7 +11,7 @@
 .content-wrapper {
   display: flex;
   // flex-grow: 1;
-  width: calc(100% / 2.5);
+  min-width: calc(100% / 3.6);
   flex-direction: column;
   flex: 1;
   color: var(--theme-color);
@@ -33,7 +33,7 @@
 
 .content-wrapper-small {
   @extend .content-wrapper;
-  width: calc(100% / 2.5);
+  min-width: calc(100% / 5);
   align-content: space-around;
   align-items: center;
   padding: 10px 20px;
