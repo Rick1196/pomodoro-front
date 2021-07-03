@@ -18,6 +18,8 @@ import { RouterModule } from '@angular/router';
 import { SideMenuComponent } from '../component/shared/side-menu/side-menu.component';
 import { CreateTeamComponent } from '../modules/teams/component/create-team/create-team.component';
 import { TeamsListComponent } from '../modules/teams/component/teams-list/teams-list.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+
 @NgModule({
   declarations: [
     TimeFormatterPipe,
@@ -42,6 +44,7 @@ import { TeamsListComponent } from '../modules/teams/component/teams-list/teams-
     TranslateModule,
     DragDropModule,
     RouterModule,
+    OverlayModule
   ],
   exports: [
     TimeFormatterPipe,

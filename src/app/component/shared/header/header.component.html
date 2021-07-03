@@ -1,6 +1,10 @@
 <div class="app">
   <div class="header">
-    <div class="nav-icon" [ngClass]="this.menuService.menuStatus ? 'open' : ''" (click)="toggleMenu()">
+    <div
+      class="nav-icon"
+      [ngClass]="this.menuService.menuStatus ? 'open' : ''"
+      (click)="toggleMenu()"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -98,13 +102,20 @@
         [src]="imgProfileSrc"
         alt=""
         (click)="changeCardProfileStatus()"
+        cdkOverlayOrigin
+        #trigger="cdkOverlayOrigin"
       />
     </div>
   </div>
 </div>
-<app-profile-card
-  *ngIf="cardProfileStatus === true"
-  class="profile-card"
-  (appClickOutside)="changeCardProfileStatus()"
-  [excludedIds]="['profile-img']"
-></app-profile-card>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="cardProfileStatus"
+>
+  <app-profile-card
+    class="profile-card"
+    (appClickOutside)="changeCardProfileStatus()"
+    [excludedIds]="['profile-img']"
+  ></app-profile-card>
+</ng-template>
