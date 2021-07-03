@@ -75,8 +75,8 @@ app-root {
 .app {
   position: absolute;
   background-color: var(--theme-bg-color);
-  max-width: 100%;
-  width: 100%;
+  max-width: 100vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -92,5 +92,5 @@ app-root {
 .main-container {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  // flex-grow: 1;
  }

@@ -10,14 +10,15 @@ export class CreateSectionComponent implements OnInit {
   @Input() teamId: string = '';
   public sectionForm = new FormControl(
     null,
-    [Validators.required,Validators.minLength(1),
-      Validators.pattern('(.+[a-zA-Z])(\n+)')])
+    [Validators.required,
+      Validators.minLength(3)])
   constructor(public sectionsService: SectionsService) { }
 
   ngOnInit(): void {
   }
 
   public saveNewSection():void{
+    console.log('Section form status', this.sectionForm);
     if(this.sectionForm.valid === true){
       const sectionData:SectionI = {
         dateCreated: new Date(),

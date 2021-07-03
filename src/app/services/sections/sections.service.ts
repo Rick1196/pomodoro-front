@@ -17,7 +17,7 @@ export class SectionsService {
   public readTeamSections(teamId: string): Observable<SectionI[]> {
     return this.afs
         .collection<SectionI>('sections', (ref) => {
-          return ref.where('teamId', '==', teamId );
+          return ref.orderBy('dateCreated').where('teamId', '==', teamId );
         })
         .snapshotChanges().pipe(
           map(changes =>
