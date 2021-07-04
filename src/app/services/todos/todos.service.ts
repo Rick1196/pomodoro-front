@@ -3,6 +3,7 @@ import { TodoI } from 'src/app/interfaces/TodoI';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SectionI } from 'src/app/interfaces/section';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,12 @@ export class TodosService {
           )
         );
   }
-  
+
+  public deleteTodo(todo:TodoI):Promise<void> {
+    return this.afs.collection('todos').doc(todo.uid).delete();
+  } 
+
+
   public updateTodo(todo:TodoI):Promise<void>{
     console.log('To update', todo);
     return this.afs.collection('todos').doc(todo.uid).update(todo);

@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    <li *ngFor="let option of options" (click)="performAction(option.code)">
+      {{ option.translation | translate }}
+    </li>
+  </ul>
+</div>

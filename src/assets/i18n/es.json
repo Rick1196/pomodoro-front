@@ -55,6 +55,12 @@
             "input":{
                 "placeholder":"Nombre de la sección"
             }
+        },
+        "todoMenu":{
+            "delete":"Eliminar Tarjeta"
+        },
+        "menu":{
+            "delete":"Eliminar sección"
         }
     }
 }

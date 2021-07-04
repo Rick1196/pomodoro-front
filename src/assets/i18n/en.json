@@ -55,6 +55,12 @@
             "input":{
                 "placeholder":"Section name"
             }
+        },
+        "todoMenu":{
+            "delete":"Delete todo"
+        },
+        "menu":{
+            "delete":"Delete section"
         }
     }
 }
