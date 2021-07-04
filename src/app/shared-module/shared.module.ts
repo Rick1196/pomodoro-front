@@ -20,6 +20,7 @@ import { CreateTeamComponent } from '../modules/teams/component/create-team/crea
 import { TeamsListComponent } from '../modules/teams/component/teams-list/teams-list.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { MatIconModule } from '@angular/material/icon';
+import { LanguageCardComponent } from '../component/shared/header/language-card/language-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
     SideMenuComponent,
     CreateTeamComponent,
     TeamsListComponent,
+    LanguageCardComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
     DragDropModule,
     RouterModule,
     OverlayModule,
+    MatIconModule
   ],
   exports: [
     TimeFormatterPipe,
@@ -66,7 +69,9 @@ import { MatIconModule } from '@angular/material/icon';
     SideMenuComponent,
     CreateTeamComponent,
     TeamsListComponent,
-    OverlayModule
+    OverlayModule,
+    MatIconModule,
+    LanguageCardComponent
   ],
 })
 export class SharedModule {}

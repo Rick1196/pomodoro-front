@@ -4,6 +4,13 @@
 @import "./teams.scss";
 @import "./side-bar.scss";
 @import "./burguer-icon.scss";
+.white-icon{
+    color: #ffff;
+    &.white-icon:hover{
+        cursor: pointer;
+    }
+}
+
 .form-group {
     display: flex;
     height: 60px;

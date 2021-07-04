@@ -10,6 +10,7 @@ import { SideMenuService } from 'src/app/services/side-menu/side-menu.service';
 export class HeaderComponent {
   public imgProfileSrc: string | null = null;
   public cardProfileStatus = false;
+  public languageMenuStatus = false;
   constructor(
     public authenticationService: AuthenticationService,
     private router: Router,
@@ -26,10 +27,14 @@ export class HeaderComponent {
     });
   }
 
-  public changeCardProfileStatus() {
+  public changeCardProfileStatus():void {
     const nextStatus = !this.cardProfileStatus;
-    console.log('Changing card status to', nextStatus);
     this.cardProfileStatus = nextStatus;
+  }
+
+  public changeLanguageMenuStatus():void{
+    const nextStatus = !this.languageMenuStatus;
+    this.languageMenuStatus = nextStatus;
   }
 
   public toggleMenu():void{

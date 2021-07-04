@@ -16,6 +16,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserAnimationsModule,
     DragDropModule,
     OverlayModule,
+    MatIconModule
   ],
   providers: [
     CookieService,
