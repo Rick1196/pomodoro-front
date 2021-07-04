@@ -21,7 +21,6 @@ export class ClickOutsideDirective {
     const excludedElements = this.excludedIds.map((id) => {
       return document.getElementById(id);
     });
-    console.log(target);
     let clickedInside = this.elementRef.nativeElement.contains(target);
     if (clickedInside === false) {
       excludedElements.forEach((element: HTMLElement) => {
