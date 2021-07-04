@@ -6,4 +6,5 @@ export interface TodoI{
     dateUpdated:Date;
     dateCreated:Date;
     sectionId:string;
+    status?:boolean;
 }

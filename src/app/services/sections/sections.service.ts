@@ -10,8 +10,12 @@ import { SectionI } from 'src/app/interfaces/section';
 export class SectionsService {
   constructor(public afs: AngularFirestore) {}
 
-  public createSection(sections: SectionI) {
-    this.afs.collection('sections').add(sections);
+  public createSection(section: SectionI) {
+    this.afs.collection('sections').add(section);
+  }
+
+  public deleteSection(section: SectionI):Promise<void> {
+    return this.afs.collection('sections').doc(section.uid).delete();
   }
 
   public readTeamSections(teamId: string): Observable<SectionI[]> {

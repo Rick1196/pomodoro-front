@@ -79,7 +79,7 @@ label {
     width: 100%;
 }
 
-.select {
+.select ,ul {
     text-transform: uppercase;
     background-color: transparent;
     border: #fff;
@@ -92,7 +92,7 @@ label {
     cursor: pointer;
     transition: 0.3s;
     width: 200px;
-    option {
+    option, il {
         text-transform: uppercase;
         position: absolute;
         background: var(--dropdown-bg);

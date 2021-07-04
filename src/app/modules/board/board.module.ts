@@ -7,9 +7,10 @@ import { TodoCardComponent } from './component/board/component/todo-card/todo-ca
 import { CardContainerComponent } from './component/board/component/cards-container/card-container.component';
 import { TodosContainerComponent } from './component/board/component/todos-container/todos-container.component';
 import { CreateSectionComponent } from './component/create-section/create-section.component';
+import { TodoCardMenuComponent } from './component/board/component/todo-card-menu/todo-card-menu.component';
 
 @NgModule({
-  declarations: [DashboardComponent, TodoCardComponent, CardContainerComponent, TodosContainerComponent, CreateSectionComponent],
+  declarations: [DashboardComponent, TodoCardComponent, CardContainerComponent, TodosContainerComponent, CreateSectionComponent, TodoCardMenuComponent],
   imports: [CommonModule, SharedModule, BoardRoutingModule],
 })
 export class BoardModule {}

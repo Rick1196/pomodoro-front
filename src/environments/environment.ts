@@ -4,9 +4,10 @@
 
 import { firebaseConfig } from './firebase';
 import { languages } from './supportedLanguages';
-
+import {commonData} from './commonData';
 export const environment = {
   languages: languages,
+  commonData: commonData,
   firebase: firebaseConfig,
   production: false,
 };
