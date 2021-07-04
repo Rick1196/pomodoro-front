@@ -45,7 +45,7 @@
     font-size: 14px;
     border-radius: 6px;
     transition: 0.3s;
-    &:hover {
+    &.selected,&:hover {
       background-color: var(--hover-menu-bg);
     }
   }
