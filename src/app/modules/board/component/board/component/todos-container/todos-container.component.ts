@@ -18,8 +18,7 @@ export class TodosContainerComponent implements OnInit {
   public menuOptions:{translation:string,code:string}[] = environment.commonData.sectionMenuOptions;
   public todoTitleForm = new FormControl(null, [
     Validators.required,
-    Validators.minLength(1),
-    Validators.pattern('(.+[a-zA-Z])(\n+)'),
+    Validators.minLength(3),
   ]);
   public menuStatus: boolean = false;
   constructor(public todosService: TodosService, public sectionsService: SectionsService) {}
@@ -37,8 +36,8 @@ export class TodosContainerComponent implements OnInit {
   }
 
   public saveNewTodoTitle(): void {
+    console.log('Todo container --- new todo', this.todoTitleForm.value, this.section, this.teamId);
     if (this.todoTitleForm.invalid === false) {
-      console.log('Todo container --- new todo', this.todoTitleForm.value, this.section, this.teamId);
       const todoData:TodoI = {
         dateCreated: new Date(),
         dateUpdated: new Date(),
@@ -48,9 +47,6 @@ export class TodosContainerComponent implements OnInit {
         sectionId: this.section.uid
       };
       this.todosService.createTodo(todoData);
-      this.todoTitleForm.reset();
-    } else {
-      this.todoTitleForm.setValue(null);
       this.todoTitleForm.reset();
     }
   }
