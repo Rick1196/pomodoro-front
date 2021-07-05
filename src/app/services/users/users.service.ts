@@ -3,6 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { UserI } from 'src/app/interfaces/inputs/UserI';
+import firebase from 'firebase/app';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,15 +15,21 @@ export class UsersService {
    * Verifies if an user id exist if it isn't, it register the id
    * @param {string} userId to register
    */
-  public createUser(userId: string) {
-    this.queryUser(userId)
+  public createUser(user: firebase.User) {
+    this.queryUser(user.uid)
         .pipe(take(1))
         .subscribe({
           next: (users) => {
             console.log('Users --- users list', users);
             if (users.length === 0) {
-              this.afs.collection('users').add({ id: userId });
-              console.log('User created at /users', userId);
+              const newUser:UserI = {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                id: user.uid,
+              };
+              this.afs.collection('users').add(newUser);
+              console.log('User created at /users', newUser);
             }
           },
           error: (err) => {

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { DocumentReference } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { take } from 'rxjs/operators';
 import { BasicInputFieldI } from 'src/app/interfaces/inputs/BasicInputFieldI';
+import { TeamI } from 'src/app/interfaces/TeamI';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { TeamsService } from 'src/app/services/teams/teams.service';
 import { UsersService } from 'src/app/services/users/users.service';
@@ -69,7 +71,18 @@ export class AuthenticationLoginComponent implements OnInit {
         if (teams.length > 0) {
           this.router.navigate(['/board', teams[0].uid]);
         } else {
-          this.router.navigateByUrl('/teams');
+          const defaultTeam:TeamI = {
+            dateCreated: new Date(),
+            dateUpdated: new Date(),
+            name: 'My first space work',
+            owner: {id: userId},
+            status: 'ACTIVE',
+            todos: [],
+            users:[userId],
+          }
+          this.teamsService.createTeam(defaultTeam).then((team:DocumentReference<TeamI>) =>{
+            this.router.navigate(['/board', team.id]);
+          })
         }
       },
       error: (err)=>{
@@ -82,7 +95,7 @@ export class AuthenticationLoginComponent implements OnInit {
     this.authenticationService
         .googleLogin()
         .then((data: firebase.auth.UserCredential) => {
-          this.userService.createUser(data.user.uid);
+          this.userService.createUser(data.user);
           console.log('Authentication -- google login', data);
           this.checkUserTeams(data.user.uid);
         })

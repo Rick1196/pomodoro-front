@@ -6,10 +6,13 @@ import { TeamsDashboardComponent } from './component/teams-dashboard/teams-dashb
 import { CreateTeamComponent } from './component/create-team/create-team.component';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { TeamsListComponent } from './component/teams-list/teams-list.component';
+import { CreateTeamSectionComponent } from './component/create-team-section/create-team-section.component';
 
 
 @NgModule({
   declarations: [
+  
+    CreateTeamSectionComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,9 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class AuthenticationService {
   public userCredentials: firebase.auth.UserCredential | null = null;
+  
   constructor(public firebaseAuth: AngularFireAuth) {}
+
   public async googleLogin(): Promise<firebase.auth.UserCredential> {
     await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     return this.firebaseAuth.signInWithPopup(

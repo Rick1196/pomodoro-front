@@ -1,4 +1,4 @@
-import { CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import {
   AfterViewInit,
   Component,
@@ -23,6 +23,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   dropsQuery!: QueryList<CdkDropList>;
   dropsAreas!: CdkDropList[];
   public teamId:string = '';
+  public nextIndex:number = 0;
+  public sectionsList:SectionI[] = [];
   public sections:Observable<SectionI[]>;
   constructor(public router:ActivatedRoute, public sectionsService: SectionsService, public todosService:TodosService) {}
 
@@ -37,7 +39,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.sections.subscribe(sections=>{
-      console.log('Sections', sections);
+      this.nextIndex = sections.length;
+      this.sectionsList = sections;
       this.dropsQuery?.changes.subscribe(() => {
         this.dropsAreas = this.dropsQuery?.toArray();
         console.log(this.dropsAreas);
@@ -49,6 +52,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         console.error(error);
       })
     });
+  }
+
+  public sortSectionList(event:CdkDragDrop<number, any>){
+    moveItemInArray(this.sectionsList, event.previousIndex, event.currentIndex);
+    const sectionSelected = this.sectionsList[event.currentIndex];
+    const sectionMoved = this.sectionsList[event.previousIndex];
+    sectionSelected.index = event.currentIndex;
+    sectionMoved.index = event.previousIndex;
+    this.sectionsService.updateSectionsIndex(sectionSelected, sectionMoved);
   }
 
   public dropped(event: CdkDragDrop<number, any>, section:SectionI):void{

@@ -8,6 +8,7 @@ import { SectionsService } from 'src/app/services/sections/sections.service';
 })
 export class CreateSectionComponent implements OnInit {
   @Input() teamId: string = '';
+  @Input() nextIndex:number = 0;
   public sectionForm = new FormControl(
     null,
     [Validators.required,
@@ -25,6 +26,7 @@ export class CreateSectionComponent implements OnInit {
         dateUpdated: new Date(),
         name: this.sectionForm.value,
         teamId: this.teamId,
+        index: this.nextIndex
       };
       console.log('New section name', sectionData);
       this.sectionsService.createSection(sectionData);

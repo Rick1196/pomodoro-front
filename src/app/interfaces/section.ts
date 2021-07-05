@@ -4,4 +4,5 @@ export interface SectionI{
     name:string;
     dateCreated:Date;
     dateUpdated:Date;
+    index:number;
 }

@@ -1,4 +1,3 @@
-import { UserI } from './inputs/UserI';
 import { TodoI } from './TodoI';
 
 export interface TeamI {
@@ -7,7 +6,7 @@ export interface TeamI {
     status: 'ACTIVE'| 'DISABLED'|'BLOCKED';
     dateCreated: Date;
     dateUpdated: Date;
-    owner: UserI;
+    owner: {id:string};
     users: Array<string>;
     todos: Array<TodoI>;
 }

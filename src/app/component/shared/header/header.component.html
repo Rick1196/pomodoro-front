@@ -1,26 +1,11 @@
 <div class="app">
   <div class="header">
-    <div
-      class="nav-icon"
-      [ngClass]="this.menuService.menuStatus ? 'open' : ''"
-      (click)="toggleMenu()"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
     <div class="header-menu">
       <a
         class="menu-link"
-        [routerLink]="['/board']"
+        [routerLink]="['/board', currentTeam]"
         routerLinkActive="is-active"
         >{{ 'header.links.boards' | translate }}</a
-      >
-      <a
-        class="menu-link"
-        [routerLink]="['/teams']"
-        routerLinkActive="is-active"
-        >{{ 'header.links.teams' | translate }}</a
       >
     </div>
     <div class="search-bar">

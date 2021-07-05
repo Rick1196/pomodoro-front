@@ -41,7 +41,10 @@
     "header":{
         "links":{
             "boards":"Board",
-            "teams": "Teams"
+            "teams": "Team"
+        },
+        "inputs":{
+            "inviteUser":"Invite user"
         }
     },
     "teams":{

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateTeamSectionComponent } from './component/create-team-section/create-team-section.component';
 import { TeamsDashboardComponent } from './component/teams-dashboard/teams-dashboard.component';
 
 const routes: Routes = [
@@ -7,9 +8,13 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: '',
+        path: 'dashboard/:id',
         component: TeamsDashboardComponent,
       },
+      {
+        path: 'create-team',
+        component: CreateTeamSectionComponent
+      }
     ],
   },
 ];

@@ -4,7 +4,7 @@ import { TeamI } from 'src/app/interfaces/TeamI';
 import firebase from 'firebase/app';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { TeamsService } from 'src/app/services/teams/teams.service';
-import { switchMap, take, takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

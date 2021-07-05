@@ -41,7 +41,10 @@
     "header":{
         "links":{
             "boards":"Tablero",
-            "teams": "Equipos"
+            "teams": "Equipo"
+        },
+        "inputs":{
+            "inviteUser":"Invitar usuario"
         }
     },
     "teams":{
