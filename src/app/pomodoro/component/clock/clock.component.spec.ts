@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared-module/shared.module';
 
 import { ClockComponent } from './clock.component';
 
@@ -9,6 +10,7 @@ describe('ClockComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ClockComponent],
+      imports: [SharedModule],
     })
         .compileComponents();
   });

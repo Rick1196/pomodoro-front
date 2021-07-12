@@ -1,0 +1,72 @@
+{
+    "application_title": "Pomodoro App",
+    "authenticationFields":{
+        "email":{
+            "placeholder": "Email",
+            "label": "Dirección de Email"
+        },
+        "password":{
+            "placeholder": "Password",
+            "label": "Password"
+        },
+        "confirmPassword":{
+            "placeholder": "Confirmar Password",
+            "label": "Confirmar Password"
+        }
+    },
+    "login":{
+        "title":"Iniciar sesión",
+        "loginBtn":"Ingresar",
+        "signUpBtn":"Registrarse",
+        "googleBtn":"Iniciar con Google",
+        "githubBtn":"Iniciar con Github"
+    },
+    "signUp":{
+        "title": "Registrarse",
+        "sendBtn": "Enviar",
+        "loginBtn":"Iniciar sesión"
+    },
+    "authenticationErrors":{
+        "auth/email-already-in-use":"La dirección de Email ya está siendo usada por otra cuenta"
+    },
+    "profileCard":{
+    "signOut":"Cerrar sesión"
+    },
+    "formErrors":{
+        "minLength":"Mínimo {{value}} caracteres",
+        "required": "Campo requerido",
+        "maxLength":"Logitud maxima de {{value}} caracteres",
+        "notMatch": "El password y el password de confirmación no coinciden"
+    },
+    "header":{
+        "links":{
+            "boards":"Tablero",
+            "teams": "Equipo"
+        },
+        "inputs":{
+            "inviteUser":"Invitar usuario"
+        }
+    },
+    "teams":{
+        "createTeam":{
+            "inputName":"Nombre del equipo"
+        }
+    },
+    "sections":{
+        "createSection":{
+            "title":"Crear sección",
+            "input":{
+                "placeholder":"Nombre de la sección"
+            }
+        },
+        "todoMenu":{
+            "delete":"Eliminar Tarjeta"
+        },
+        "tasks":{
+            "createTask":"Crear nueva tarea"
+        },
+        "menu":{
+            "delete":"Eliminar sección"
+        }
+    }
+}

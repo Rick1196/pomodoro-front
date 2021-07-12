@@ -1,0 +1,3 @@
+<div *ngFor="let team of teams" class="item" [ngClass]="(teamSelected === team.uid)?'selected':''" (click)="changeTeam(team)">
+    {{team.name}}
+</div>

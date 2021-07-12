@@ -1,0 +1,7 @@
+<ng-container>
+  <div class="lang-card">
+    <div *ngFor="let option of options" (click)="performAction(option.code)">
+      {{ option.translation | translate }}
+    </div>
+  </div>
+</ng-container>

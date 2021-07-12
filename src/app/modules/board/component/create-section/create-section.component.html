@@ -1,0 +1,11 @@
+<div class="title-container">
+  <p class="title-text">{{ 'sections.createSection.title' | translate }}</p>
+</div>
+<div class="add-section-input">
+  <input
+    type="text"
+    [placeholder]="('sections.createSection.input.placeholder'|translate)"
+    [formControl]="sectionForm"
+    (keyup.enter)="saveNewSection()"
+  >
+</div>

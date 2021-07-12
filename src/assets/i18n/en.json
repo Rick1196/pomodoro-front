@@ -1,0 +1,72 @@
+{
+    "application_title": "Pomodoro App",
+    "authenticationFields":{
+        "email":{
+            "placeholder": "Email",
+            "label": "Email Address"
+        },
+        "password":{
+            "placeholder": "Password",
+            "label": "Password"
+        },
+        "confirmPassword":{
+            "placeholder": "Confirm Password",
+            "label": "Confirm Password"
+        }
+    },
+    "login":{
+        "title":"Log In",
+        "loginBtn":"Log In",
+        "signUpBtn":"Sign Up",
+        "googleBtn":"Log In with Google",
+        "githubBtn":"Log In with Github"
+    },
+    "signUp":{
+        "title": "Sign Up",
+        "sendBtn": "Send",
+        "loginBtn":"Log In"
+    },
+    "authenticationErrors":{
+        "auth/email-already-in-use":"The Email Address Is Already In Use By Another Account."
+    },
+    "profileCard":{
+        "signOut":"Sign Out"
+    },
+    "formErrors":{
+        "minLength":"Minimum {{value}} caracters",
+        "required": "Required field",
+        "maxLength":"Maximum length of {{value}} caracters",
+        "notMatch": "The password and the confirmation password do not match"
+    },
+    "header":{
+        "links":{
+            "boards":"Board",
+            "teams": "Team"
+        },
+        "inputs":{
+            "inviteUser":"Invite user"
+        }
+    },
+    "teams":{
+        "createTeam":{
+            "inputName":"Team name"
+        }
+    },
+    "sections":{
+        "createSection":{
+            "title":"Create section",
+            "input":{
+                "placeholder":"Section name"
+            }
+        },
+        "todoMenu":{
+            "delete":"Delete todo"
+        },
+        "tasks":{
+            "createTask":"Create new task"
+        },
+        "menu":{
+            "delete":"Delete section"
+        }
+    }
+}

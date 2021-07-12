@@ -1,0 +1,7 @@
+<div class="title-container">
+    <img class="profile-img-large" [src]="userData?.photoURL" alt="ImgUrl">
+    <p class="title-text">{{userData?.displayName}}</p>
+</div>
+<div class="bottom-container">
+    <button class="button" (click)="signOut()">{{'profileCard.signOut'|translate}}</button>
+</div>

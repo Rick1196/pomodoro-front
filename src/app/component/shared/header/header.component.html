@@ -1,0 +1,58 @@
+<div class="app">
+  <div class="header">
+    <div class="header-menu">
+      <a
+        class="menu-link"
+        [routerLink]="['/board', currentTeam]"
+        routerLinkActive="is-active"
+        >{{ 'header.links.boards' | translate }}</a
+      >
+    </div>
+    <!-- <div class="search-bar">
+      <input type="text" placeholder="Search" />
+    </div> -->
+    <div class="header-profile">
+      <div class="notification">
+        <mat-icon
+          class="white-icon"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          (click)="changeLanguageMenuStatus()"
+          cdkOverlayOrigin
+          #languageTrigger="cdkOverlayOrigin"
+          id="language-icon"
+          >language</mat-icon
+        >
+      </div>
+      <img
+        class="profile-img"
+        id="profile-img"
+        [src]="imgProfileSrc"
+        alt="profile-img"
+        (click)="changeCardProfileStatus()"
+        cdkOverlayOrigin
+        #trigger="cdkOverlayOrigin"
+      />
+    </div>
+  </div>
+</div>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="cardProfileStatus"
+>
+  <app-profile-card
+    class="profile-card"
+    (appClickOutside)="changeCardProfileStatus()"
+    [excludedIds]="['profile-img']"
+  ></app-profile-card>
+</ng-template>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="languageTrigger"
+  [cdkConnectedOverlayOpen]="languageMenuStatus"
+>
+  <app-language-card (appClickOutside)="changeLanguageMenuStatus()"
+  [excludedIds]="['language-icon']"></app-language-card>
+</ng-template>

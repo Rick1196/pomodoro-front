@@ -1,0 +1,27 @@
+.half-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    width: 100%;
+    padding: 2em;
+    margin: 2em;
+}
+
+.team-list-container{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 2;
+    height: 100%;
+    min-height: 100%;
+    border: solid 1px white;
+
+}
+
+.team-extra-section{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+

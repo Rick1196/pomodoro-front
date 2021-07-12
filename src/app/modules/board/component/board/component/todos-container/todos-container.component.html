@@ -1,0 +1,42 @@
+<div [id]="id">
+  <div class="card-menu-header" [id]="id">
+    <div
+      class="toggle-card-menu"
+      cdkOverlayOrigin
+      #trigger="cdkOverlayOrigin"
+      (click)="changeMenuStatus()"
+    >
+      <div class="nav-icon-sm" id="menu-button">
+        <span id="menu-span-1"></span>
+        <span id="menu-span-2"></span>
+        <span id="menu-span-3"></span>
+      </div>
+    </div>
+  </div>
+  <div class="title-container">
+    <p class="title-text">{{ section.name }}</p>
+  </div>
+  <app-card-container class="inner-container" [sectionId]="section.uid">
+  </app-card-container>
+  <div class="add-card-item">
+    <textarea
+      type="text"
+      [formControl]="todoTitleForm"
+      [placeholder]="('sections.tasks.createTask'|translate)"
+      (keyup.enter)="saveNewTodoTitle()"
+    ></textarea>
+  </div>
+</div>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="menuStatus"
+>
+  <app-todo-card-menu
+    class="card-menu"
+    (appClickOutside)="changeMenuStatus()"
+    [options]="menuOptions"
+    (actionCode)="performSectionAction($event)"
+    [excludedIds]="[id]"
+  ></app-todo-card-menu>
+</ng-template>

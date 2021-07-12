@@ -1,0 +1,58 @@
+.card {
+    background-color: var(--theme-bg-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 14px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+app-authentication-login,
+app-authentication-signup{
+    height:100%;
+}
+
+.login-container{
+    display: flex;
+    height: 100%;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    @extend .card;
+    align-self: center;
+    max-width: 1250px;
+    max-height: 90%;
+    height: 300px;
+    width: 400px;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.bottom-container {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-content: center;
+    justify-self: center;
+}
+
+
+.create-team-container{
+    display: flex;
+    height: 100%;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
