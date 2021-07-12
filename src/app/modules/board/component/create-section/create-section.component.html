@@ -4,6 +4,7 @@
 <div class="add-section-input">
   <input
     type="text"
+    [placeholder]="('sections.createSection.input.placeholder'|translate)"
     [formControl]="sectionForm"
     (keyup.enter)="saveNewSection()"
   >

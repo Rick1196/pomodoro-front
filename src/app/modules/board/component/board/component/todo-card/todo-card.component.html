@@ -1,5 +1,10 @@
 <div class="card-menu-header" [id]="id">
-  <div class="toggle-card-menu"   cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changeMenuStatus()">
+  <div
+    class="toggle-card-menu"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    (click)="changeMenuStatus()"
+  >
     <div class="nav-icon-sm" id="menu-button">
       <span id="menu-span-1"></span>
       <span id="menu-span-2"></span>
@@ -15,6 +20,11 @@
   [cdkConnectedOverlayOrigin]="trigger"
   [cdkConnectedOverlayOpen]="menuStatus"
 >
-  <app-todo-card-menu class="card-menu" [options]="menuOptions"  (appClickOutside)="changeMenuStatus()"
-  [excludedIds]="[id]" (actionCode)="performCardAction($event)"></app-todo-card-menu>
+  <app-todo-card-menu
+    class="card-menu"
+    [options]="menuOptions"
+    (appClickOutside)="changeMenuStatus()"
+    [excludedIds]="[id]"
+    (actionCode)="performCardAction($event)"
+  ></app-todo-card-menu>
 </ng-template>

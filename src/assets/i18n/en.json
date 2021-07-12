@@ -62,6 +62,9 @@
         "todoMenu":{
             "delete":"Delete todo"
         },
+        "tasks":{
+            "createTask":"Create new task"
+        },
         "menu":{
             "delete":"Delete section"
         }

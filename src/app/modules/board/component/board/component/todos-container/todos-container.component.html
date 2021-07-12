@@ -22,6 +22,7 @@
     <textarea
       type="text"
       [formControl]="todoTitleForm"
+      [placeholder]="('sections.tasks.createTask'|translate)"
       (keyup.enter)="saveNewTodoTitle()"
     ></textarea>
   </div>
@@ -31,6 +32,11 @@
   [cdkConnectedOverlayOrigin]="trigger"
   [cdkConnectedOverlayOpen]="menuStatus"
 >
-  <app-todo-card-menu class="card-menu"  (appClickOutside)="changeMenuStatus()" [options]="menuOptions" (actionCode)="performSectionAction($event)"
-  [excludedIds]="[id]"></app-todo-card-menu>
+  <app-todo-card-menu
+    class="card-menu"
+    (appClickOutside)="changeMenuStatus()"
+    [options]="menuOptions"
+    (actionCode)="performSectionAction($event)"
+    [excludedIds]="[id]"
+  ></app-todo-card-menu>
 </ng-template>

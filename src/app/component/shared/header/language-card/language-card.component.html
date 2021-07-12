@@ -1,8 +1,7 @@
 <div>
-    <ul>
-      <li *ngFor="let lang of languages" (click)="changeLanguage(lang)">
-        {{ lang }}
-      </li>
-    </ul>
+  <div class="lang-card">
+    <div *ngFor="let lang of languages" (click)="changeLanguage(lang)">
+      {{ lang }}
+    </div>
   </div>
-  
+</div>

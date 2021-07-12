@@ -29,7 +29,7 @@ app-authentication-signup{
     align-self: center;
     max-width: 1250px;
     max-height: 90%;
-    height: 500px;
+    height: 300px;
     width: 400px;
 }
 
@@ -42,10 +42,10 @@ app-authentication-signup{
 
 .bottom-container {
     display: flex;
-    margin-top: auto;
     margin-bottom: 20px;
     flex-direction: column;
-    align-content: flex-end;
+    align-content: center;
+    justify-self: center;
 }
 
 

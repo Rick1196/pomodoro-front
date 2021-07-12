@@ -177,11 +177,11 @@
   right:0;
   margin-top: 1em;
   border: 1px solid var(--border-color);
-  height: 200px;
-  width: 300px;
-  border-radius: 14px;
   background: var(--theme-bg-color);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px;
+  height: 200px;
+  width: 300px;
   z-index: 200;
 }

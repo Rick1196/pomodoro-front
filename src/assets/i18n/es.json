@@ -62,6 +62,9 @@
         "todoMenu":{
             "delete":"Eliminar Tarjeta"
         },
+        "tasks":{
+            "createTask":"Crear nueva tarea"
+        },
         "menu":{
             "delete":"Eliminar sección"
         }
