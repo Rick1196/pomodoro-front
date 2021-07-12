@@ -12,8 +12,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.4.0
-      - npm dependencies:
-        run: npm install
+      - run: npm install
       - run: ng build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
