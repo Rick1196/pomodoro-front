@@ -35,6 +35,6 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting --project="${{ secrets.PROJECT_ID }}"
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          projectId: pomodoro-app-44c9b
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
