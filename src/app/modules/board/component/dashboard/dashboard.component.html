@@ -1,9 +1,5 @@
 <div
   class="grid-columns-container"
-  cdkDropListGroup
-  cdkDropList
-  cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="sortSectionList($event)"
 >
   <app-todos-container
     class="content-wrapper"
@@ -14,8 +10,7 @@
     [cdkDropListConnectedTo]="dropsAreas"
     (cdkDropListDropped)="dropped($event, section)"
     [id]="section.uid"
-    [cdkDragData]="section"
-    cdkDrag
+  
   >
   </app-todos-container>
   <app-create-section
