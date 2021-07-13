@@ -34,6 +34,6 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting --project="$pomodoro-app-44c9b"
+          args: deploy --only hosting --project="pomodoro-app-44c9b"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
